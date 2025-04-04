@@ -1,0 +1,55 @@
+Agenda:
+
+Rules of CSS
+Ways to Add CSS
+CSS Selectors
+Properties of CSS (color, background, fonts, and texts)
+
+
+
+
+External
+Internal
+Inline
+
+
+User Agent Style Sheet
+
+A User Agent Style Sheet (UAS) is a default set of CSS rules applied by a web browser to HTML elements. When a browser renders a webpage, it applies these predefined styles to ensure that elements are displayed in a readable and functional way, even if no explicit styles are defined by the website's CSS.
+
+
+Each browser has its own user agent stylesheet, and while they are generally similar, they can vary slightly between browsers. This can result in minor differences in how the same webpage appears in different browsers.
+
+
+
+Inline CSS: Styles defined directly within the HTML element using the style attribute have the highest precedence. They override any other styles applied to the same element.
+
+Internal CSS: Styles defined within a <style> tag in the <head> section of the HTML document come next in precedence. They apply to all elements of the same type throughout the document, unless overridden by inline styles.
+
+External CSS: Styles defined in an external CSS file linked to the HTML document using the <link> tag have the lowest precedence. They apply globally to all elements of the specified type, unless overridden by inline or internal styles.
+
+
+Inline > Internal > External 
+
+
+
+If two conflicting styles have the same precedence, the one defined later in the document will override the earlier one.
+
+
+
+
+background-color sets the solid color behind an element.
+
+background-image adds an image behind an element.
+
+background-size adjusts the size of the background image.
+
+background-repeat controls whether the image repeats or not.
+
+background-position lets you position the background image within the element.
+
+
+
+
+
+
