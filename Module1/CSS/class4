@@ -1,0 +1,54 @@
+Agenda
+
+Box Model
+Display Property in CSS
+Overflow in CSS
+CSS Units
+
+
+
+box Boxing : Content Box 
+
+Total Rendered Width = content width + padding-left + padding-right + border-left + border-right
+
+Total Rendered Height = content height + padding-top + padding-bottom + border-top + border-bottom
+
+
+
+
+box Boxing : Border Box 
+
+Total Content Width = Element  width - ( padding-left + padding-right + border-left + border-right)
+
+Total Content Height = Element height - ( padding-top + padding-bottom + border-top + border-bottom) 
+
+
+
+
+
+
+
+
+1. Absolute Units
+
+
+These are fixed units and do not scale based on other elements or screen size.
+
+px
+pt
+cm
+mm
+in
+
+Use absolute units when you need precise physical sizes, like for print styles.
+
+
+
+2. Relative Units
+
+
+%  : any perentage relative to a parent  (Flexible layouts, widths, heights, margins)
+vh,vw : relative to a screen size (Full Screen Sections , responsive layouts)
+rem  : relative to the font-size of the root element (usually the <html> tag). (font sizes , spacing , padding , margin)
+em : relative to the font-size of its closest parent (which may be inherited or explicitly set) (Buttons, nested components ..etc)
+
