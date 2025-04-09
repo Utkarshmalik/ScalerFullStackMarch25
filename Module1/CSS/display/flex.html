@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .container{
+            background-color: tomato;
+            border:2px solid black;
+
+            display: flex;
+            /* flex-direction: row; */
+            flex-direction: row;
+            /* flex-direction: column; */
+
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column-reverse; */
+
+            /* flex-wrap: wrap; */
+
+
+            /* justify-content: space-evenly; */
+            /* justify-content: flex-end; */
+            justify-content: center;
+            /* justify-content: space-around; */
+            /* justify-content: space-between; */
+            /* justify-content: space-evenly;  */
+
+            /* align-items: flex-end; */
+            align-items: center ;
+            /* align-items: stretch; */
+
+            height: 1000px;
+
+
+
+        }
+
+        .box{
+            height: 150px;
+            width: 150px;
+            background-color: dodgerblue;
+            margin: 10px;
+        }
+
+        .box1{
+            /* order: 5; */
+            flex-shrink: 2;
+            flex-grow: 7;
+        }
+
+        .box4{
+            /* order: -1; */
+            flex-shrink: 10;
+            flex-grow: 5;
+        }
+
+        .box5{
+            flex-grow: 1;
+        }
+
+        .box3{
+            flex-grow: 1;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="box box1"> 1 </div>
+        <div class="box"> 2 </div>
+        <div class="box box3"> 3 </div>
+        <div class="box box5"> 5 </div>
+
+        <!-- <div class="box box4"> 4 </div>
+        <div class="box"> 5 </div>
+        <div class="box"> 6 </div>
+        <div class="box"> 7 </div> 
+        <div class="box"> 5 </div>
+        <div class="box"> 6 </div>
+        <div class="box"> 7 </div> 
+        <div class="box"> 5 </div>
+        <div class="box"> 6 </div>
+        <div class="box"> 7 </div>  -->
+        <!-- <div class="box"> 8 </div>
+        <div class="box"> 9 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 6 </div>
+        <div class="box"> 7 </div>
+        <div class="box"> 8 </div>
+        <div class="box"> 9 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 9 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 9 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 1 </div>
+        <div class="box"> 2 </div>
+        <div class="box"> 3 </div>
+        <div class="box"> 4 </div>
+        <div class="box"> 5 </div>
+        <div class="box"> 6 </div>
+        <div class="box"> 7 </div>  -->
+        <!-- <div class="box"> 8 </div>
+        <div class="box"> 9 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 6 </div>
+        <div class="box"> 7 </div>
+        <div class="box"> 8 </div>
+        <div class="box"> 9 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 9 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 10 </div>
+        <div class="box"> 9 </div>
+        <div class="box"> 10 </div>
+    </div>
+    
+</body>
+</html>

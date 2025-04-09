@@ -1,0 +1,125 @@
+
+Agenda 
+
+Display
+What is FlexBox
+Using Flexbox properties to Design Layouts
+Responsive Design 
+Media Queries for Responsive Layout
+
+
+
+Display : 
+
+block 
+inline block 
+inline 
+
+
+flex 
+grid 
+
+
+
+
+Block 
+
+A block-level element always starts on a new line, and takes up the full width available (by default).
+
+
+Key Characteristics:
+
+Starts on a new line
+
+Takes 100% of the container’s width (unless width is specified)
+
+Can have width, height, margin, padding applied
+
+Stack one after another vertically
+
+<div>, <p>, <h1>-<h6>, <section>, <article>, <header>, <footer>, etc.
+
+
+
+Inline 
+
+An inline element does not start on a new line and only takes up as much width as necessary. It flows with the text, like a word in a sentence.
+
+
+ Key Characteristics:
+
+Stays on the same line as other inline elements/text
+
+Cannot set width or height
+
+Can apply padding and margin, but only horizontally
+
+Commonly used for styling parts of text
+
+
+
+<span>, <a>, <strong>, <em>, <b>, <i>, <label>, etc.
+
+
+
+inline block 
+
+inline-block elements behave like inline elements (i.e., sit on the same line), but can accept box properties like width and height — a combination of inline and block.
+
+
+
+FlexBox 
+
+
+Flexible Box 
+
+
+flexDirection 
+flexWrap 
+
+justfiyContent : how to arrange items across the main axis 
+
+flex-start
+flex-end 
+center
+
+
+
+justify-content: flex-start;
+Flex items are aligned at the beginning of the container (left for a row layout, top for a column layout).
+justify-content: flex-end;
+Flex items are aligned at the end of the container (right for a row layout, bottom for a column layout).
+justify-content: center;
+Flex items are centered along the container's main axis.
+Equal space is added before the first item and after the last item, creating a balanced appearance.
+justify-content: space-between;
+Flex items are evenly spaced along the main axis.
+The first item aligns with the container's start, the last item aligns with the container's end, and equal space is added between the items.
+justify-content: space-around;
+Flex items are evenly spaced along the main axis, with space distributed around them.
+Space is added before the first item, after the last item, and between each pair of items.
+justify-content: space-evenly;
+Flex items are evenly spaced along the main axis, with equal space added between them.
+Equal space is added before the first item, between all items, and after the last item.
+
+
+
+
+
+
+Align Items 
+
+flexStart
+flexEnd 
+Center 
+
+Baseline 
+Stretch :Flex items are stretched to fill the container's cross axis.
+
+
+
+
+order 
+flex Shrink
+flex grow
+
