@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            height: 100vh;
+            font-size: 20px;
+            display: grid;
+
+            grid-template-areas:
+            'top top top top'
+            'nav content content sidebar'
+            'nav footer footer footer'
+
+
+        }
+
+        header,nav,main,aside,footer{
+            
+            background-color: tomato;
+            color: white;
+            padding: 20px;
+            border: 1px solid skyblue;
+
+        }
+
+
+        header{
+            grid-area:top;
+
+        }
+        nav{
+            grid-area:nav;
+        }
+
+        main{
+            grid-area: content;
+
+        }
+        aside{
+            grid-area: sidebar;
+
+        }
+        footer{
+            grid-area: footer;
+        }
+      
+
+    
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <header> Header </header>
+    <nav> Navigation </nav>
+    <main> Content</main>
+    <aside> Sidebar </aside>
+    <aside> Sidebar </aside>
+    <footer> footer </footer>
+
+
+</body>
+</html>

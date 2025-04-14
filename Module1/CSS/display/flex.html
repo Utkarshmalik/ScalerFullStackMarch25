@@ -7,6 +7,7 @@
 
     <style>
 
+ 
         .container{
             background-color: tomato;
             border:2px solid black;
@@ -34,6 +35,10 @@
             /* align-items: stretch; */
 
             height: 1000px;
+/* 
+            gap: 300px; */
+
+            flex-wrap: wrap;
 
 
 
@@ -43,28 +48,38 @@
             height: 150px;
             width: 150px;
             background-color: dodgerblue;
-            margin: 10px;
+            /* margin: 10px; */
         }
 
         .box1{
             /* order: 5; */
-            flex-shrink: 2;
-            flex-grow: 7;
+            /* flex-shrink: 2;
+            flex-grow: 7; */
         }
 
         .box4{
             /* order: -1; */
-            flex-shrink: 10;
-            flex-grow: 5;
+            /* flex-shrink: 10;
+            flex-grow: 5; */
         }
 
         .box5{
-            flex-grow: 1;
+            /* flex-grow: 1; */
         }
 
         .box3{
-            flex-grow: 1;
+            /* flex-grow: 1; */
         }
+
+
+        @media(max-width:700px){
+            
+            .container{
+                flex-direction: column;
+                gap:20px;
+            }
+        }
+
 
     </style>
 
@@ -78,7 +93,7 @@
         <div class="box box3"> 3 </div>
         <div class="box box5"> 5 </div>
 
-        <!-- <div class="box box4"> 4 </div>
+         <div class="box box4"> 4 </div>
         <div class="box"> 5 </div>
         <div class="box"> 6 </div>
         <div class="box"> 7 </div> 
@@ -87,7 +102,7 @@
         <div class="box"> 7 </div> 
         <div class="box"> 5 </div>
         <div class="box"> 6 </div>
-        <div class="box"> 7 </div>  -->
+        <div class="box"> 7 </div>  
         <!-- <div class="box"> 8 </div>
         <div class="box"> 9 </div>
         <div class="box"> 10 </div>

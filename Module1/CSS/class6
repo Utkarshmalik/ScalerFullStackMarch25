@@ -1,0 +1,39 @@
+
+
+Grid 
+Media Queries for Responsive Layout
+When to use Flexbox vs Grids vs Media Queries 
+
+
+CSS Grid Layout is a layout in CSS that allows you to create two-dimensional grid layouts for arranging and aligning elements on a web page
+
+
+ Grid Container
+ Grid Items
+  Grid Lines
+
+
+
+
+
+  Flexbox VS Grids
+
+
+
+Flexbox:
+One-dimensional layout
+
+
+Grid:
+Two-dimensional layout
+
+When to Use Flexbox:
+When you have a linear, one-dimensional layout (like a navbar or a list).
+When you want items to be flexible, adjusting to the available space (such as a responsive design where the number of items adjusts depending on the screen size).
+When you need simple alignment and distribution of items in a row or column.
+
+
+When to Use Grid:
+When you need a two-dimensional layout (both rows and columns).
+When you want to create complex layouts with precise control over positioning and spacing.
+When you need to span items across multiple rows or columns.
