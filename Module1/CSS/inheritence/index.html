@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            
+            border:3px solid red;
+        }
+
+        .parent{
+            color: blue; 
+            font-size: 18px;
+
+            /* border:1px solid green; */
+
+            padding: 10px;
+
+            border: inherit;
+
+        }
+
+        .child{
+
+            /* border:1px solid red; */
+
+            padding: inherit;
+
+            border: inherit;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+
+    <div class="parent">
+
+        Parent Text
+
+        <div class="child">
+
+            Child Text
+
+        </div>
+
+
+    </div>
+
+
+    
+</body>
+</html>
+
+
+<!-- In CSS, inheritance refers to the mechanism by which some property values are passed down from a parent element to its children. When a property is inherited, the child element gets the value of that property from its parent, unless it is explicitly overridden.
+ -->
+
+<!-- 
+ Inherited Properties: Some CSS properties naturally inherit values from their parent element, such as color, font-family, font-size, line-height, text-align, etc.
+ -->
+
+ <!-- Non-Inherited Properties: Most layout and box model-related properties, such as margin, padding, border, width, height, background, etc., are not inherited by default. -->
+

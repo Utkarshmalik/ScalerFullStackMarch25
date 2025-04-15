@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        li{
+            color: red;                    
+        }
+
+        #fruits{
+            color: palevioletred ;          
+        }
+
+        .favourite{                
+            color: green !important;                  
+        }
+
+        li#fruits{
+            color: yellow;                  
+        }
+
+        ul #fruits{
+            color: red;                    
+        }
+
+      
+
+        ul .favourite{             
+            color: gold;                   
+        }
+
+        li.favourite{
+            color: aqua;                      
+        }
+
+        body ul li {
+            color:pink;                     
+        }
+
+        *{
+            color: gray;                      
+        }
+
+    </style>
+
+</head>
+<body>
+
+   
+    <ul>
+
+        <li>Apple</li>
+        <li id="fruits" class="favourite" >Mango</li>
+        <li>Orange</li>
+
+    </ul>
+
+
+    
+</body>
+</html>
+
+
+
+
+Triad 
+
+A: id-like specificity
+B: class like specificity 
+C: elment class Specifivcty
+
+
+(A, B, C)
+
+A-> #myId 
+B-> .myclass, [class]:hover
+C: div, p, p::selection
+
+
+S1: (1,2,3) 
+S2: (4,5,7)
+S3: (3,7,9)
+
+
+
+(1,0,0) (0,4,3) => S1
+(2,0,1) (2,1,1) =>  S2
+(1,1,1) (1,1,2) => S2
+
+Element or pseudo-element selector
+
+Incrmenent the C part by 1
+
+Universal Selector  
+
+*{
+    color: gray;
+}
+
+(0,0,0)
+
+
+Element Sector 
+
+div{
+    color : red
+}
+
+(0,0,1)
+
+Pseudo Selector 
+
+::selection {
+    color: red;
+  }
+
+(0,0,1)
+
+
+
+
+Classes , Pseudo Class , or attribute Selector 
+
+Incrmeent the B part by 1 
+
+
+.apple{
+
+}
+
+(0,1,0)
+
+:hover{
+    color:pink
+}
+
+(0,1,0)
+
+input[type="text"]{
+
+}
+
+(0,1,0)
+
+
+ID Selector 
+
+Incrmeent the B part by 1 
+
+
+#element{
+
+}
+
+(1,0,0)
+
+
+
+
+
+
+a {
+    color: red;
+}
+
+(0,0,1)
+
+
+a.my-class {
+    color: green;
+}
+
+(0,1,1)
+
+
+a.my-class.another-class {
+    color: rebeccapurple;
+}
+
+
+(0,2,1)
+
+
+a.my-class.another-class[href] {
+    color: goldenrod;
+  }
+
+(0,3,1)
+
+
+
+a.my-class.another-class[href]:hover {
+    color: lightgrey;
+
+
+}
+
+(0,4,1)

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .static-box{
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        body{
+            border:3px solid red;
+            height: 2000px;
+        }
+
+        .bookshelf{
+
+            width: 500px;
+            height: 500px;
+            border:5px solid rebeccapurple;
+            margin: 100px auto;
+
+            /* position: relative; */
+            position: absolute;
+            right: 50px;
+        }
+
+        .book{
+
+            width: 80px;
+            height: 100px;
+            margin: 2px;
+            color: black;
+            background-color: aqua;
+            text-align: center;
+            display: inline-block;
+        }
+
+
+        .book2{
+            background-color: purple;
+            color: white;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .book4{
+
+            /* position: fixed;
+            top:30px;
+            left:30px; */
+
+        }
+
+        .navbar{
+            margin-top: 200px;
+            height: 100px;
+            text-align: center;
+            width: 98vw;
+            background-color: black;
+            color: white;
+
+            position: sticky;
+            top:0px;
+            left:0px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <!-- <div class="static-box"> 
+
+        <h2> I am a static box  </h2>
+
+
+    </div> -->
+
+    <div class="navbar"> Navbar  </div>
+
+    <div class="bookshelf">
+
+        <div class="book">Book 1</div>
+        <div class="book book2">Book 2 </div>
+        <div class="book">Book 3</div>
+        <div class="book book4">Book 4</div>
+        <div class="book">Book 5 </div>
+        <div class="book">Book 6</div>
+        <div class="book">Book 7 </div>
+        <div class="book">Book 8</div>
+        <div class="book">Book 9 </div>
+
+    </div>
+
+
+
+
+</body>
+</html>
+
+
+
+
+<!-- Position : Static
+
+static are positioned in
+the normal flow of the document, meaning they will be displayed one after another, vertically and horizontally, based on
+their order in the HTML. 
+
+
+No Offsetting: Elements with position: static are not affected by the top, right, bottom, and left properties. Any attempts to apply these properties will have no effect.
+
+
+
+
+Position: Relative 
+
+A relative positioned element is positioned relative to its normal position in the document flow. This means it will still occupy space in the document layout, but you can offset it using the top, right, bottom, and left properties.
+
+
+Postion : Absolute 
+: An element is taken out from the normal positioning and positioned relative to the nearest positioned ancestor (an ancestor element that has a position value other than static) or, if there is none, relative to the initial containing block, usually the viewport.
+
+
+
+Position : Fixed 
+
+A fixed positioned element is removed from the normal document flow, and it's positioned relative to the viewport (the browser window). This means it will stay in the same place even when the page is scrolled.
+
+
+
+
+Position : Sticky 
+
+When an element is given a "position" value of "sticky," it acts like a relative-positioned element within its containing element until a certain scroll threshold is reached. Once the user scrolls beyond that threshold, the element becomes "stuck" in place and behaves like a fixed-positioned element, remaining visible on the screen.
+
+In other words, a sticky element starts as part of the normal document flow, just like a relatively positioned element. As the user scrolls, the element follows its normal position until it reaches a designated point (usually when its top or bottom edge reaches a specific distance from the viewport's edge). At that point, it becomes "sticky" and remains fixed at that position while the rest of the content scrolls.
+
+
+-->
