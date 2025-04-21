@@ -1,0 +1,25 @@
+Agenda 
+
+
+JS Code Execution - Hoisting and Execution Context
+Hoisting
+Execution Context
+Host and Native Object
+How this behaves in JS
+Chaining in JS
+JS inheritance and prototype
+bind, call and apply in JS
+
+
+
+
+
+
+Host Objects 
+
+Browser : Window , Local Storage , Document 
+Node JS : Global, os, process 
+
+Native Objects
+
+Date , JSON 
