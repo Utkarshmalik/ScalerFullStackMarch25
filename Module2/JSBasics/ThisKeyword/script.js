@@ -46,17 +46,17 @@
 
 
 
-// let cap = {
-//     firstName : "Steve",
-//     sayHi : function(){
-//         console.log("53", this.firstName);
-//         const iAmInner = function(){
-//             console.log("55",this.firstName);
-//         }
-//         iAmInner();
-//     }
-// }
-// cap.sayHi();
+let cap = {
+    firstName : "Steve",
+    sayHi : function(){
+        console.log("53", this.firstName);
+        const iAmInner = function(){
+            console.log("55",this.firstName);
+        }
+        iAmInner();
+    }
+}
+cap.sayHi();
 
 
 
@@ -169,5 +169,5 @@
 
 // For Execution context created with a function call(calling without object), this will be that window.
 
-
+//Arrow functions inherit this from their surrounding scope.
 

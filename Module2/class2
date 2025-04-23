@@ -10,11 +10,6 @@ Chaining in JS
 JS inheritance and prototype
 bind, call and apply in JS
 
-
-
-
-
-
 Host Objects 
 
 Browser : Window , Local Storage , Document 
@@ -22,4 +17,4 @@ Node JS : Global, os, process
 
 Native Objects
 
-Date , JSON 
+Date , JSON
