@@ -14,13 +14,17 @@ let ironMan = {
     team: "iron man"
 }
 
+cap.petersTeam.apply(ironMan,["Utkarsh","Malik"]);
+
 
 
 // cap.petersTeam.call(ironMan,"Rahul","Jay");
 
 
-let anotherFn = cap.petersTeam.bind(ironMan,"Rahul","Jay");
-anotherFn();
+
+
+// let anotherFn = cap.petersTeam.bind(ironMan,"Rahul","Jay");
+// anotherFn();
 
 
 
@@ -28,7 +32,6 @@ anotherFn();
 
 
 
-//cap.petersTeam.apply(ironMan,["Rahul","Jay"]);
 
 
 
