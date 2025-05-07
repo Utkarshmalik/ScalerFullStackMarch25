@@ -1,0 +1,6 @@
+Callback Hell
+Introduction to promise as a concept
+Consuming promises(then, catch)
+Chaining promises
+Promises over callbacks and MicroTask Queue
+Converting cb to promise -> promisify
