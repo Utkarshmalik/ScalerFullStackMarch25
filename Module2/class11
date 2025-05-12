@@ -1,0 +1,6 @@
+
+Converting cb to promise -> promisify
+Promise.race
+Promise.any
+Async await 
+Error Handling 
