@@ -1,0 +1,7 @@
+In JavaScript, a module is simply a file that contains code, and it can expose parts of its functionality (like functions, objects, or variables) to other files. By splitting the code into different modules, we can manage complex applications more easily.
+
+
+
+Why ? 
+
+Encapsulation

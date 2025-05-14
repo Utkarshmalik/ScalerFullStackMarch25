@@ -49,19 +49,25 @@ const fs = require("fs");
 
 
 
-const dataPromise1 =  fs.promises.readFile("./f1.txt");
-const dataPromise2 =  fs.promises.readFile("./f2.txt");
-const dataPromise3 =  fs.promises.readFile("./f3.txt");
-
 async function readMultipleFilesInSync(){
 
+
+
+        const dataPromise1 =  fs.promises.readFile("./f1.txt");
+        const dataPromise2 =  fs.promises.readFile("./f2.txt");
+        const dataPromise3 =  fs.promises.readFile("./f3.txt");
+
     try{
-    const data1 = await dataPromise1;
-    console.log("Content " + data1);
-    const data2 = await dataPromise2;
-    console.log("Content " + data2);
-    const data3 = await dataPromise3;
-    console.log("Content " + data3);
+    // const data1 = await dataPromise1;
+    // console.log("Content " + data1);
+    // const data2 = await dataPromise2;
+    // console.log("Content " + data2);
+    // const data3 = await dataPromise3;
+    // console.log("Content " + data3);
+
+      const allFileDataArr  = await Promise.all([dataPromise1,dataPromise2,dataPromise3]);
+
+      console.log(allFileDataArr);
     }
     catch(err){
        console.log("Some Error Occured while reading ",err);

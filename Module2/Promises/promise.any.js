@@ -5,7 +5,7 @@
 
 
 const p1 = new Promise((_, reject) => setTimeout(() => reject('Fail 1'), 1000));
-const p2 = new Promise((resolve,reject) => setTimeout(() => resolve('Win 4!'), 2000));
+const p2 = new Promise((resolve,reject) => setTimeout(() => reject('Fail 4!'), 2000));
 const p3 = new Promise((_, reject) => setTimeout(() => reject('Fail 2'), 1500));
 
 
