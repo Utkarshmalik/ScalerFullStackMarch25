@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p type="random">lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <h1>Hi i am h1 </h1>
+
+    <script>
+        const allPs = document.querySelectorAll("p");
+
+        for(let i=0;i<allPs.length;i++){
+
+            // console.log(allPs[i].type);
+            // console.log(allPs[i].getAttribute("type"));
+            // allPs[i].setAttribute("keyNumber",i+1);
+
+            //element.style.propertyName 
+
+            allPs[i].style.color = "green";
+
+        }
+
+        const h1 = document.querySelector("h1");
+        // h1.style.display="none";
+
+        h1.remove();
+
+    </script>
+</body>
+</html>

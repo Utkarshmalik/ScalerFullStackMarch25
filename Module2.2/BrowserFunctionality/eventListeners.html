@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>click Me </button>
+    <input type = "text" />
+    <ul></ul>
+
+    <script>
+
+        const button = document.querySelector("button");
+        const ul = document.querySelector('ul');
+
+
+        //element.addEventListener(event,callbackFn);
+
+        button.addEventListener("click",function(e){
+
+
+            const input = document.querySelector("input");
+
+            const item = document.createElement('li');
+
+            item.textContent=input.value;
+
+            ul.appendChild(item);
+
+            input.value = "";
+
+        })
+
+
+    </script>
+    
+</body>
+</html>
+
+
+<!-- 
+Mouse Events:
+
+click: When the mouse is clicked on an element.
+
+dblclick: When the mouse is double-clicked on an element.
+
+mouseover: When the mouse pointer moves over an element.
+
+mouseout: When the mouse pointer leaves an element.
+
+mousemove: When the mouse pointer moves within an element.
+
+
+Keyboard Events:
+
+keydown: When a key is pressed down.
+
+keyup: When a key is released.
+
+keypress: When a key is pressed and released (deprecated, use keydown or keyup).
+
+
+Form Events:
+
+submit: When a form is submitted.
+
+change: When the value of an <input>, <select>, or <textarea> element changes.
+
+focus: When an element gains focus (e.g., when a user clicks on an input field).
+
+blur: When an element loses focus.
+
+Window Events:
+
+load: When the page or an image has finished loading.
+
+resize: When the browser window is resized.
+
+scroll: When the user scrolls within an element.
+
+ -->

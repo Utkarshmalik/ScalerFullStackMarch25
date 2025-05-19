@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class = "hifine"> I am h1</h1>
+    <h1> I am another</h1>
+    <h2> I am h1</h2>
+    <h3> I am h1</h3>
+    <p class = "para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet inventore adipisci dignissimos
+        voluptatibus ad
+        debitis vel natus nobis? Doloribus fugit vitae veritatis esse! Cumque odio quasi sapiente quisquam est! Odio!
+    </p>
+    <p class = "para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet inventore adipisci dignissimos
+        voluptatibus ad
+        debitis vel natus nobis? Doloribus fugit vitae veritatis esse! Cumque odio quasi sapiente quisquam est! Odio!
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet inventore adipisci dignissimos voluptatibus ad
+        debitis vel natus nobis? Doloribus fugit vitae veritatis esse! Cumque odio quasi sapiente quisquam est! Odio!
+    </p>
+
+    <input type = "text">
+    <input type = "password" id="special">
+    <input type = "text">
+    <button>click</button>
+
+
+
+    <script>
+
+
+    
+  //css selectors 
+
+   const h1 = document.querySelector("h1");
+   console.log(h1);
+
+   let inputPass = document.querySelector("input[type='password']");
+   console.log(inputPass.textContent);
+
+   const h1Arr = document.querySelectorAll("h1");
+   console.log(h1Arr);
+
+   //indexing 
+
+   console.log(h1Arr[0]);
+   console.log(h1Arr[1]);
+
+   h1Arr.forEach((elem)=>{
+    console.log(elem.textContent);
+   })
+
+   const allItems = document.getElementsByClassName("para");
+   console.log(allItems);
+
+   console.log(allItems[0]);
+
+
+//    allItems.forEach((item)=>{
+//     console.log(item);
+//    })
+
+   const newList = Array.from(allItems);
+   console.log(newList);
+
+   const input = document.getElementById("special");
+   console.log(input);
+
+
+
+    </script>
+
+</body>
+</html>
