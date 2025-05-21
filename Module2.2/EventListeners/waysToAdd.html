@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="box"> I am a box </div>
+
+    <script>
+
+        let box = document.querySelector(".box");
+
+        //inline events 
+
+        // box.onclick = function(){
+        //     alert("I was clicked");
+        // }
+
+        // box.onclick = function(){
+        //     alert("I am fake");
+        // }
+
+
+
+        //addEventListeners -> have multiple callbacks for a given event
+
+
+        box.addEventListener("click",() => {
+    console.log("I was clicked");       
+        },{once:true})
+
+    box.addEventListener("click", () => {
+        console.log("I was fake");
+    })
+
+
+
+    </script>
+    
+</body>
+</html>

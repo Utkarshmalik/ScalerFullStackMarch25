@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div[id] {
+
+            border: 1px solid red;
+        }
+
+        #outer_box {
+            height: 10rem;
+            width: 10rem;
+            background-color: lightblue;
+        }
+
+        #inner_box {
+            height: 50%;
+            width: 50%;
+            background-color: lightgreen;
+            margin-top: 10px;
+        }
+
+        #button {
+            margin-top: 3px;
+            background-color: lightsalmon;
+            width: 50%;
+            margin-left: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Bubbling</h1>
+    <div id = "outer_box">
+        <div id = "inner_box">
+            <div id = "button">Click Me </div>
+        </div>
+    </div>
+
+    <script>
+
+        const outerBox = document.querySelector("#outer_box");
+        const innerBox = document.querySelector("#inner_box");
+        const button = document.querySelector("#button");
+
+
+        //useCapture
+
+        outerBox.addEventListener("click",(e)=>{
+            console.log("outer box was clicked",e.target,e.currentTarget);
+        },true)
+
+        innerBox.addEventListener("click",(e)=>{
+            console.log("inner box 1 was clicked",e.target,e.currentTarget);
+
+            // e.stopPropagation();
+            // e.stopImmediatePropagation();
+
+        })
+
+        // innerBox.addEventListener("click",(e)=>{
+        //     console.log("inner box 2 was clicked",e.target,e.currentTarget);
+
+        // })
+
+
+        button.addEventListener("click",(e)=>{
+            console.log("Button was clicked",e.target,e.currentTarget);
+
+        },true)
+
+
+
+        
+    </script>
+
+</body>
+</html>
+
+Event bubbling is one of the phases of event propagation in the DOM. When an event occurs on a DOM element, it first triggers the event handlers on the target element itself, then it bubbles up to its parent elements in the DOM hierarchy.
+
+
+
+Capturing Phase:
+
+The event starts at the root of the DOM tree (typically the <html> element).
+The event travels down the DOM tree through each ancestor element of the target element.
+During this phase, event handlers registered with the capturing phase (useCapture set to true) are triggered on each ancestor element in the order they appear in the hierarchy from the root to the target.
+The event reaches the target element.
+Target Phase:
+
+The event reaches the target element for which the event was triggered.
+Event handlers registered on the target element are executed.
+Bubbling Phase:
+
+After the target phase, the event travels back up the DOM tree in reverse order.
+Event handlers registered with the bubbling phase (useCapture set to false) are triggered on each ancestor element in the reverse order from the target to the root.
+The event eventually reaches the root of the DOM tree.
+
+Image : https://camo.githubusercontent.com/1352b2956a46b5e86a223dd89c606304c624f9b71074a21102a33c050aad4d5c/68747470733a2f2f6a6176617363726970742e696e666f2f61727469636c652f627562626c696e672d616e642d636170747572696e672f6576656e74666c6f772e737667

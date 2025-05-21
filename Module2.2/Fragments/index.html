@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+
+        
+    </ul>
+
+    <script>
+
+        const ul = document.querySelector('ul');
+
+        // //1000
+
+        // for(let i=0;i<1000;i++){
+
+        //     let newLi = document.createElement("li");
+
+        //     newLi.textContent = `I am a list item ${i+1}`;
+
+        //     ul.appendChild(newLi);
+
+        // }
+
+        //smarter way 
+
+        let fragment = document.createDocumentFragment();
+
+        for(let i=0;i<1000;i++){
+
+            let newLi = document.createElement('li');
+
+            newLi.textContent  = `I am a list item ${i+1}`;
+
+            fragment.appendChild(newLi);
+
+        }
+
+        //append the fragment to a dom 
+
+        ul.appendChild(fragment);
+
+
+    </script>
+    
+</body>
+</html>
+
+<!-- 
+The fragment is a temporary node with which you can attach a lot of node substructures and when you append that fragment then that fragment will disappear.
+ -->
+<!-- 
+
+ Performance: Modifying the DOM can be slow, especially with many elements. Instead of adding elements to the DOM one by one (which would trigger multiple reflows), you can build them in a DocumentFragment and then append them all at once, reducing the browser's work. -->
+
+ <!-- Efficient DOM Manipulation: It provides a way to build a set of elements, then move them into the actual DOM at once, avoiding unnecessary intermediate changes. -->
+

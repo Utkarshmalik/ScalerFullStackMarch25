@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "UTF - 8" />
+    <meta http-equiv = "X - UA - Compatible" content = "IE = edge" />
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0" />
+    <title>Event Delegation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            border: 1px solid;
+            height: 10rem;
+            width: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class = "container">
+        <div class = "red">red</div>
+        <div class = "blue">blue</div>
+        <div class = "green">green</div>
+    </div>
+
+    <script>
+
+        const container = document.querySelector(".container");
+
+        const red = document.querySelector(".red");
+        const blue = document.querySelector(".blue");
+        const green = document.querySelector(".green");
+
+        // red.addEventListener("click",(e)=>{
+        //     const color = e.target.getAttribute("class");
+        //     container.style.backgroundColor=color;
+        // })
+
+        // blue.addEventListener("click",(e)=>{
+        //     const color = e.target.getAttribute("class");
+        //     container.style.backgroundColor=color;
+        // })
+        
+        // green.addEventListener("click",(e)=>{
+        //     const color = e.target.getAttribute("class");
+        //     container.style.backgroundColor=color;
+        // })
+
+        
+        container.addEventListener("click",(e)=>{
+            const color = e.target.getAttribute("class");
+            container.style.backgroundColor=color;
+        })
+
+
+    </script>
+    
+</body>
+
+</html>
+
+
+

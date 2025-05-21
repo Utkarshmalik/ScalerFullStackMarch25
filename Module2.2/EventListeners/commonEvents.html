@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="box"> I am a box </div>
+
+    <input type="text"/>
+
+    <script>
+
+        let box = document.querySelector(".box");
+
+        // box.addEventListener("mouseover",()=>{
+        //     alert("hover occured");
+        // })
+
+        // box.addEventListener("mouseleave", () => {
+        //     alert("mouseleave occurred");
+        // })
+
+        // box.addEventListener("mouseup", () => {
+        //     alert("mouseup occurred");
+        // })
+
+
+        // box.addEventListener("mousedown", () => {
+        //     alert("mousedown occurred");
+        // })
+
+        // box.addEventListener("dblclick", () => {
+        //     alert("dblclick occurred");
+        // })
+
+        let input = document.querySelector("input");
+
+        input.addEventListener("keydown",(e)=>{
+            console.log(e);
+            alert(`Key pressed ${e.key} `);
+        })
+
+        input.addEventListener("keyup", function () {
+            console.log("keyup called");
+        })
+
+
+
+       
+
+
+    </script>
+    
+</body>
+</html>
