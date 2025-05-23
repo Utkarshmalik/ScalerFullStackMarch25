@@ -1,0 +1,28 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.timer_labels{
+    display: flex;
+    gap:6rem;
+}
+
+
+.btn{
+
+    padding:5px;
+    width: 100px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+input{
+    font-size: 20px ;
+}
