@@ -1,0 +1,64 @@
+
+body{
+        background-color: #f9f9f9;
+}
+
+
+#commentForm textarea{
+    width: 1000%;
+    border:1px solid #ccc;
+    max-width: 600px;
+    height: 100px;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+
+#commentForm button{
+    background-color:#005a9c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border:1px solid white;
+    cursor: pointer;
+}
+
+.comment, .reply{
+    background-color: #fff;
+    margin: 15px 0px;
+    padding:5px 10px;
+    border-radius: 8px;
+      box-shadow: 5px 2px #005a9c  ;
+}
+
+.comment .replyBtn{
+    margin-top: 10px;
+    background-color:#005a9c;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.repliesContainer{
+    margin-top: 15px;
+    padding-left: 20px;
+    border-left: 3px solid lightgray;
+
+}
+
+.replyInput{
+
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    border-radius: 5px;
+    display: none;
+    
+}
+
+.comment:hover .replyInput{
+    display: block;
+}
