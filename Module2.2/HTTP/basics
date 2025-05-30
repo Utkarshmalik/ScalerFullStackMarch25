@@ -1,0 +1,43 @@
+
+
+HTTP 
+
+Client -> Server 
+
+
+HTTP Meesage
+
+HTTP Request
+
+Request Line 
+
+Contains the HTTP method, URL (Uniform Resource Locator), and HTTP version.
+Example: GET /index.html HTTP/1.1
+
+Headers:
+
+Additional information about the request.
+Examples: Host, User-Agent, Accept.
+
+
+Body(option)
+Data sent to the server, often used in POST requests.
+
+
+
+
+HTTP Response 
+
+Status Line:
+
+Contains the HTTP version, a three-digit status code, and a reason phrase.
+Example: HTTP/1.1 200 OK
+
+Headers:
+
+Additional information about the response.
+Examples: Content-Type, Content-Length, Server.
+
+Body (Optional):
+Data sent from the server to the client.
+Example: HTML, JSON, or binary data.

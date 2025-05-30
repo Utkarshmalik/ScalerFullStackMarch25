@@ -1,0 +1,35 @@
+
+
+
+.autoComplete{
+
+    text-align: center;
+    border: 3px solid purple;
+    height: 80vh;
+    margin: 40px auto;
+    margin:10px;
+
+}
+
+.head{
+    font-size: 40px;
+}
+
+.searchInput{
+
+    width:40%;
+    height: 2rem;
+    font-size: 20px;
+    border-radius: 0.5rem;
+}
+
+.suggestionBox{
+
+    max-height: 20rem;
+    overflow-y: scroll;
+    border: 1px solid black;
+    margin: 10px auto;
+    width: 80%;
+    padding:10px;
+
+}

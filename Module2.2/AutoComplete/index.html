@@ -1,0 +1,53 @@
+<!-- 
+     Create a Autocomplete/ Typeahead
+
+    Must Have
+
+    On  typing inside the search box, it should suggest related terms 
+
+
+        use this API to fetch the data :
+    https://restcountries.com/v3.1/name/{name}
+
+    
+    Good to Have 
+    * Search might be perfomant enough 
+    * it should avoid un-necessary network calls : caching , debouncing/throtling 
+    * it should persist previously fethced data
+    * atleast 2 characters should    
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="reset.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="autoComplete">
+        
+
+        <h2 class="head">Countries </h2>
+
+
+        <input type="text" class="searchInput"/> 
+
+        <ul class="suggestionBox">
+
+           
+        </ul>
+
+
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
