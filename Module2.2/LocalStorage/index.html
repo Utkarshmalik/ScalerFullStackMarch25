@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2> Local Storage </h2>
+
+    <ul>
+
+        <li>I am a list item </li>
+        <li>I am a list item </li>
+        <li>I am a list item </li>
+        <li>I am a list item </li>
+
+    </ul>
+
+       </ul>
+        <button id="read">read</button>
+        <button id="remove">remove</button>
+        <button id="Add">Add</button>
+
+        <script>
+
+            const addButton = document.querySelector("#Add");
+
+            addButton.addEventListener("click",(e)=>{
+
+                const allExistingLi = document.querySelectorAll("li");
+                console.log(allExistingLi);
+
+                const liData = [];
+
+                for(let i=0;i<allExistingLi.length;i++){
+
+                    liData.push(allExistingLi[i].textContent);
+                }
+
+
+                localStorage.setItem("items",JSON.stringify(liData));
+
+            });
+
+
+             const readBtn = document.querySelector("#read");
+
+            readBtn.addEventListener("click",(e)=>{
+
+                const itemsFromLocalStorage = localStorage.getItem("items");
+
+                const items = JSON.parse(itemsFromLocalStorage);
+
+                items.forEach((item)=>{
+                    console.log(item);
+                })
+
+               
+
+            });
+
+
+        </script>
+
+    
+</body>
+</html>

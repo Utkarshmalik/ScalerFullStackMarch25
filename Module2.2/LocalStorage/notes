@@ -1,0 +1,51 @@
+## Local Storage Overview:
+
+Local storage is a web storage mechanism provided by modern web browsers. It enables web applications to store small amounts of data on the user's device, persisting even after browser closure or navigating away from the website.
+
+Known for its speed, local storage operates within the user's browser, making data reading and writing much faster than network requests to a server.
+
+The URL "scaler.com" likely represents the website's domain. Local storage is domain-scoped, meaning data stored for "scaler.com" is only accessible when users visit web pages under that domain.
+
+Each website has its isolated local storage; thus, data stored on one domain is not accessible by websites with different domains.
+
+## Privacy and Accessibility:
+
+Local storage is not designed for data sharing among multiple users. Each user's local storage is unique to their device and remains private. Data stored in local storage is inaccessible and unmodifiable by other users, even if they visit the same website.
+
+
+### Persistence:
+
+- Data in local storage persists across browser sessions and even after browser closure.
+
+
+### Storage Limit:
+
+- Local storage has a size limit, varying across browsers but typically around 5-10 megabytes per domain.
+
+
+
+### Local storage
+
+Web storage objects `localStorage`  allow to store key/value pairs in the browser.
+
+- Both `key` and `value` must be strings.
+- The limit is 5mb+ depends on the browser.
+- They do not expire.
+- The data is bound to the origin (domain/port/protocol).
+
+* Shared between all tabs and windows with the same origin
+* survives browser restart
+
+
+
+API:
+
+- `setItem(key, value)` – store key/value pair.
+- `getItem(key)` – get the value by key.
+- `removeItem(key)` – remove the key with its value.
+- `clear()` – delete everything.
+- `key(index)` – get the key number `index`.
+- `length` – the number of stored items.
+- Use `Object.keys` to get all keys.
+
+

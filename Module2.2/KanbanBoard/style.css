@@ -6,6 +6,7 @@
     --purple:purple;
     --grey:#393c3f;
     --light:white;
+    --red:red;
 
 
 }
@@ -159,6 +160,10 @@
 
 .green{
     background-color: var(--green);
+}
+
+.red{
+    color: var(--red);
 }
 
 
