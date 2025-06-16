@@ -1,0 +1,15 @@
+Introduction to React
+React Build tools, List, Forms ,Props and State
+*Creating Components in React
+*Lifting the state up and useEffect
+Imdb-1 setup,client side routing and React router
+*Imdb-2 movies page and pagination
+*Imdb-3 TMDB API, watch list and localstorage
+*Imdb-4 searching,sorting,filteration and Context API
+Context API recap and Redux
+*Integrating Redux
+*Testing and deployment
+*React Perf and rendering
+*React machine coding Problems
+*React Interview Prep
+Contest
