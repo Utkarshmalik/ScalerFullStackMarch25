@@ -1,0 +1,17 @@
+
+
+.userList{
+
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.userListHead{
+
+    text-align: center;
+    font-size: 3rem;
+    padding:1rem;
+}

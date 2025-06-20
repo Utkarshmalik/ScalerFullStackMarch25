@@ -1,23 +1,31 @@
 import User from "../User/User";
+import UsersData from "../../data/users.json";
+import "./UserList.css";
+import NavbarComp from "../Common/Navbar/Navbar";
 
+function UserList(props){
 
-function UserList(){
+    console.log(UsersData);
+
+    const users = UsersData.users;
+    console.log(users);
 
     return <div>
 
-        <h1>I am a UserList component</h1>
+        <NavbarComp/>
 
-        <User name="Utkarsh" age="31" address={{city:"Delhi"}} />
-        <User name="Harsh" age="23"/>
-        <User name="Yogesh" age="35"/>
-        <User name="Kalpesh" age="61"/>
-        <User name="Sipra" age="21"/>
-        <User name="Atish" age="41"/>
-        <User name="Utkarsh" age="31"/>
-        <User name="Utkarsh" age="31"/>
-        <User name="Utkarsh" age="31"/>
-        <User name="Utkarsh" age="31"/>
-        <User name="Utkarsh" age="31"/>
+        <h1 className="userListHead">UserList</h1>
+        <div className="userList">
+
+        {
+            users.map((user)=>{
+                return <User key={user.id} theme={props.theme} userData={user} />
+            })
+        }
+
+
+        </div>
+
 
     </div>
 
