@@ -6,6 +6,7 @@ import Login from './Components/Login/Login';
 import { useState } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Counter from './Components/Counter/Counter';
+import TodoList from './Components/TodoList/TodoList';
 
 function App() {
 
@@ -13,24 +14,20 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-   const onLogin=()=>{
-    setIsLoggedIn(true);
-   }
 
-   const onLogout=()=>{
-    setIsLoggedIn(false);
-   }
+    const onLoginButtonClick=()=>{
+         setIsLoggedIn(true);
+     }
+
 
   return (
     <div>
-{/* 
-      <Button onClick={onLogin}>  Login </Button>
-       <Button onClick={onLogout}>  Logout </Button>
- */}
+
+      
 
       {
-        (isLoggedIn) ? <UserList  theme={theme} /> :  <Login/>
-      }
+        (isLoggedIn) ? <UserList  theme={theme} /> :  <Login onLogin={onLoginButtonClick} />
+      } 
 
     </div>
  

@@ -15,3 +15,13 @@
     font-size: 3rem;
     padding:1rem;
 }
+
+.search{
+    text-align: center;
+}
+
+.search input{
+    width: 30%;
+    padding: 8px;
+    font-size: 20px;
+}

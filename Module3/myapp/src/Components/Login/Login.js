@@ -8,16 +8,9 @@ import Button from 'react-bootstrap/Button';
 import "./Login.css";
 
 
-function Login(){
+function Login(props){
 
-    const onLogin=()=>{
-
-        console.log("Login Clicked");
-
-
-    }
-
-
+ 
     return   <Form className='loginForm'>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
         <Form.Label column sm="2">
@@ -37,7 +30,7 @@ function Login(){
         </Col>
       </Form.Group>
 
-            <Button onClick={onLogin} className='btn' variant="primary"> Login </Button>
+            <Button onClick={props.onLogin} className='btn' variant="primary"> Login </Button>
 
     </Form>
 
