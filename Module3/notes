@@ -1,0 +1,13 @@
+
+
+Mounting 
+Mounting is the stage where the component is being created and inserted into the UI. It's like setting up the stage before the play begins.
+
+
+Updating
+Updating occurs after the component has been mounted and involves any changes to the component’s state or props (the parameters passed into a component). 
+
+
+
+Unmounting
+Unmounting is the final phase of the component lifecycle.

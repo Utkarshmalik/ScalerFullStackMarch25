@@ -10,6 +10,13 @@ import "./Login.css";
 
 function Login(props){
 
+
+  // email , password 
+
+  // useEffect(()=>{
+
+  // },[email,password])
+
  
     return   <Form className='loginForm'>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
