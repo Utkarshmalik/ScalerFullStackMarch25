@@ -17,7 +17,6 @@ function Banner(){
 
               const movies = response.data.results;
 
-              console.log(movies);
 
               const requiredMovieIndex = getRandomValue(0,movies.length-1);
 
@@ -44,7 +43,7 @@ function Banner(){
         },[])
 
 
-    return <div className="h-[75vh] border bg-cover bg-center flex items-end justify-center" 
+    return <div className="h-[60vh] border bg-cover bg-center flex items-end justify-center" 
     style={{backgroundImage:`url(${bannerImage})`}} >
         <div className=" font-3xl text-white">
             {movieName}
