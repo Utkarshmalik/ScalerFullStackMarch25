@@ -3,13 +3,13 @@ import Movies from "../../Components/Movies/Movies";
 
 
 
-function Home({addMovieToAWatchList,removeMovieFromWatchList }){
+function Home({addMovieToAWatchList,removeMovieFromWatchList,watchList }){
 
 
     return <div>
 
         <Banner/>
-        <Movies  addMovieToAWatchList={addMovieToAWatchList} removeMovieFromWatchList={removeMovieFromWatchList} />
+        <Movies watchList={watchList} addMovieToAWatchList={addMovieToAWatchList} removeMovieFromWatchList={removeMovieFromWatchList} />
 
     </div>
 

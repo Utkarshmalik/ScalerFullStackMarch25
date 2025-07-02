@@ -4,7 +4,7 @@ import axios from "axios";
 import MovieCard from "../MovieCard/MovieCard";
 import Pagination from "../Pagination/Pagination";
 
-function Movies({addMovieToAWatchList, removeMovieFromWatchList}){
+function Movies({addMovieToAWatchList, removeMovieFromWatchList, watchList}){
 
     const [moviesData, setMoviesData]  = useState(null);
     const [isLoading, setIsLoading]  = useState(true);
@@ -54,7 +54,7 @@ function Movies({addMovieToAWatchList, removeMovieFromWatchList}){
 
                         {
                             moviesData.map((movieObj)=>{
-                                return <MovieCard key={movieObj.id}  movieObj={movieObj} 
+                                return <MovieCard key={movieObj.id}  movieObj={movieObj} watchList={watchList}
                                 
                                  addMovieToAWatchList={addMovieToAWatchList} removeMovieFromWatchList={removeMovieFromWatchList}
                                 />
