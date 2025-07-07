@@ -1,0 +1,88 @@
+
+
+
+Store :  The store is the central place where all the state of your application lives. It acts as a single source of truth, meaning all the data your app needs to function is stored here.
+
+
+Actions:
+
+An action is a plain JavaScript object that describes what happened in your application. Actions are used to tell the store what kind of update is needed for the state.
+
+const addTodoAction = {
+  type: 'ADD_TODO',
+  payload: 'Learn Redux',
+};
+
+
+
+On Trigger
+
+
+Dispatching an Action: You use the dispatch function to send an action to the store:
+
+store.dispatch({ type: 'ADD_TODO', payload: 'Learn Redux' });
+
+store.dispatch({ type: 'INCREMENT_COUNTER'});
+
+
+
+Reducers
+
+A reducer is a pure function that takes the current state and an action as input and returns a new state.
+
+Reducers specify how the state should change in response to an action.
+
+
+function countReducer(state, action){
+        switch (action.type) {
+        case 'INCREMENT':
+        return { ...state, value: state.value + 1 };
+        case 'DECREMENT':
+        return { ...state, value: state.value - 1 };
+        default:
+        return state;
+    }
+
+}
+
+
+
+Store holds the state of your app.
+Actions describe what you want to do (e.g., "Increment the counter").
+Dispatch sends the action to the store.
+Reducers decide how the state should change based on the action.
+
+
+
+
+ Vanilla Redux:
+
+It is boilerplate-heavy, especially for beginners. You have to write a lot of repetitive code:
+
+Setting up actions, reducers, and action creators.
+Managing middleware like redux-thunk for async actions.
+Handling immutable state updates can be tricky.
+
+
+What is Redux Toolkit?
+
+Redux Toolkit is the official, modern way to use Redux. It simplifies the setup and reduces boilerplate, making Redux easier to learn and use.
+
+
+
+
+
+
+Slice
+
+The term "slice" typically refers to a slice of the Redux state. It is a portion of the global state managed by Redux, usually representing a specific 
+feature or domain of your application.
+
+In Redux Toolkit (RTK), a "slice" is a concept introduced to simplify Redux logic. A slice is essentially a reducer combined with actions for a particular feature or part of the state. It is created using createSlice from Redux Toolkit, which helps automatically generate action creators and reducers for managing state in a concise way.
+
+
+Selectors:
+
+A selector is a function that extracts a specific piece of state from the store. 
+
+const selectCounterValue = (state) => state.counter.value;

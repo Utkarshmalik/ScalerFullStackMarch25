@@ -3,9 +3,18 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import WatchList from "./Pages/WatchList/Watchlist";
 import Navbar from "./Components/Navbar/Navbar";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import Counter from "./Pages/Counter/Counter";
+import TodoList from "./Pages/TodoList/TodoList";
+
+
+export const ThemeContext = createContext();
+export const WatchListContext = createContext();
+
 
 function App() {
+
+  const [theme, setTheme] = useState("light");
 
   const watchListItems = localStorage.getItem("watchList");
 
@@ -44,22 +53,39 @@ function App() {
 
   }
 
+  const toggleTheme = ()=>{
+    if(theme==="light"){
+      setTheme("dark");
+    }else{
+      setTheme("light");
+    }
+  }
+
+
   return (
     <>
+    <ThemeContext.Provider value={{theme:theme, toggleTheme}} >
+    <WatchListContext.Provider value={{watchList,addMovieToAWatchList,removeMovieFromWatchList}}>
+
     <BrowserRouter>
 
     <Navbar/>
 
     <Routes>
 
-      <Route path="/" element={ <Home watchList={watchList} addMovieToAWatchList={addMovieToAWatchList} removeMovieFromWatchList={removeMovieFromWatchList} /> } />
+      <Route path="/" element={ <Home /> } />
 
-      <Route path="/watchlist" element={ <WatchList removeMovieFromWatchList={removeMovieFromWatchList} watchList={watchList} /> } />
+      <Route path="/watchlist" element={ <WatchList /> } />
 
+      <Route path="/counter" element={ <Counter /> } />
+
+      <Route path="/todo" element={ <TodoList /> } />
 
     </Routes>
     
     </BrowserRouter>
+    </WatchListContext.Provider>
+    </ThemeContext.Provider>
     </>
   );
 }

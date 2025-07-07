@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { WatchListContext } from "../../App";
 
 
-function MovieCard({movieObj, addMovieToAWatchList,removeMovieFromWatchList, watchList}){
+function MovieCard({movieObj}){
+
+
+    const {watchList, addMovieToAWatchList, removeMovieFromWatchList} = useContext(WatchListContext);
 
     const bannerImage = `https://image.tmdb.org/t/p/original/${movieObj.backdrop_path}`;
 

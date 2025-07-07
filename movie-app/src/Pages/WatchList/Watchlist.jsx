@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import genreIdMappings from "../../configurations/genreConfigs";
+import { WatchListContext } from "../../App";
 
 
 
-function WatchList({watchList, removeMovieFromWatchList}){
+function WatchList(){
+    
+    const {watchList, removeMovieFromWatchList} = useContext(WatchListContext);
 
     const genres = new Set();
 
