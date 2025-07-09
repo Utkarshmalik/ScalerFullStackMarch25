@@ -1,0 +1,60 @@
+// Unit Testing: Verifying the smallest units (components) of the app in isolation to ensure individual functionality.
+
+
+// Example: Testing a function that calculates the sum of two numbers.
+
+// function add(a,b){
+//     return a-b;
+// }
+
+// add(4,5)=>9
+// add(7,8)=>15 
+
+// Functional Testing/Integration Testing:: Assessing how multiple components interact to achieve specific functions within the application.
+
+
+
+//Stress Testing
+
+
+// Performance Testing
+
+// Security Testing
+
+
+
+
+
+
+//Unit Tests
+
+
+//TDD
+
+add(2,4):6
+add(6,8):14
+
+Test-Driven Development (TDD) is a software development process where developers write automated test cases before writing the actual code to pass those tests. 
+
+
+
+test('should calculate area of rectangle correctly', () => {
+  expect(calculateRectangleArea(3, 4)).toBe(12);
+});
+
+test('should calculate area of rectangle correctly', () => {
+  expect(calculateRectangleArea(5, 10)).toBe(50);
+});
+
+
+function calculateRectangleArea(length, width) {
+  return length * width;
+}
+
+
+
+
+Installation 
+
+npm install  @testing-library/react @testing-library/jest-dom  @testing-library/user-event  jest
+
