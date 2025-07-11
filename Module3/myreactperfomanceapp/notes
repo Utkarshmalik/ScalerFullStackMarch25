@@ -1,0 +1,20 @@
+Long Initial Load Time: The initial load time can be significantly high as the browser needs to download a large JavaScript bundle before rendering any content.
+
+
+Poor Performance: Large bundle sizes can lead to performance issues, especially on slower networks or less powerful devices.
+
+
+Unnecessary Resource Usage: Users might download code for components and features they never interact with, leading to wasted resources.
+
+
+
+
+
+1. Code Splitting:
+
+Dynamic imports create separate chunks for each component. When you run npm run build, Webpack (the module bundler used by Create React App) will create separate files for HomePage, AboutPage, and ContactPage. These files are only loaded when needed.
+
+
+Lazy Loading / On-Demand Loading
+
+Instead of loading all components at once, components are loaded only when a user navigates to the respective route. This reduces the initial load time, making the app faster to start.
