@@ -6,6 +6,12 @@ import Navbar from "./Components/Navbar/Navbar";
 import { createContext, useEffect, useState } from "react";
 import Counter from "./Pages/Counter/Counter";
 import TodoList from "./Pages/TodoList/TodoList";
+import Users from "./Pages/Users/Users";
+import CounterComponent from "./Components/ClassBased/CounterComponent";
+import TodoListComponent from "./Components/ClassBased/TodoListComponent";
+import MoviesComp from "./Components/Movies/MoviesComp";
+import Login from "./Pages/Login/Login";
+import AuthHoc from "./hoc/AuthHoc";
 
 
 export const ThemeContext = createContext();
@@ -73,13 +79,36 @@ function App() {
 
     <Routes>
 
-      <Route path="/" element={ <Home /> } />
+      <Route path="/login" element={ <Login /> } />
 
-      <Route path="/watchlist" element={ <WatchList /> } />
+      <Route path="/" element={
 
-      <Route path="/counter" element={ <Counter /> } />
+        <AuthHoc>
+         <Home/>
+        </AuthHoc>
+    
+    } />
 
-      <Route path="/todo" element={ <TodoList /> } />
+      <Route path="/watchlist" element=
+      
+      
+      { 
+      <AuthHoc>
+       <WatchList />
+      </AuthHoc>
+    } 
+      
+      />
+
+      <Route path="/counter" element={ <CounterComponent /> } />
+
+      <Route path="/todo" element={ <TodoListComponent /> } />
+
+      <Route path="/users" element={ <Users /> } />
+
+        <Route path="/movies" element={ <MoviesComp /> } />
+
+
 
     </Routes>
     
@@ -91,3 +120,9 @@ function App() {
 }
 
 export default App;
+
+
+
+
+// const EnhancedHomeComponent = AuthhigherOrderComponent(HomeComponent);
+// const EnhancedWatchListComponent = AuthhigherOrderComponent(WatchListComponent);

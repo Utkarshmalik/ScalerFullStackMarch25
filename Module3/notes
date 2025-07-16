@@ -11,3 +11,38 @@ Updating occurs after the component has been mounted and involves any changes to
 
 Unmounting
 Unmounting is the final phase of the component lifecycle.
+
+
+
+
+
+
+
+
+
+
+Context API:
+
+Use when:
+
+Simple state management needs
+Small to medium applications
+Low-frequency updates
+When prop drilling is the main problem
+When you have a smaller team
+
+
+
+Redux:
+Use when:
+
+Complex state management
+Large applications
+Frequent state updates
+Need for:
+    Middleware
+    Dev tools for debugging
+    Centralized state management
+    Complex state logic
+    Time-travel debugging
+Large team collaboration

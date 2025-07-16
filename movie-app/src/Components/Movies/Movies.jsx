@@ -3,6 +3,7 @@ import Spinner from "../Common/Spinner/Spinner";
 import axios from "axios";
 import MovieCard from "../MovieCard/MovieCard";
 import Pagination from "../Pagination/Pagination";
+import useFetch from "../../hooks/common/useFetch";
 
 function Movies(){
 
@@ -26,6 +27,8 @@ function Movies(){
     
 
     const fetchMoviesData = async ()=>{
+
+        
         try{
             const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=1439d8ee0449071c8283dae52000692e&page=${pageNumber}`);
 
@@ -77,3 +80,16 @@ function Movies(){
 }
 
 export default Movies;
+
+
+//class based components
+
+//machine 
+
+//developer 
+
+// -> hooks 
+
+
+//functional components
+

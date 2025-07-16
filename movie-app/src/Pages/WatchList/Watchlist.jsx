@@ -1,44 +1,13 @@
-import { useContext, useState } from "react";
+import { useWatchListHook } from "../../hooks/WatchListHook";
 import genreIdMappings from "../../configurations/genreConfigs";
-import { WatchListContext } from "../../App";
 
 
 
 function WatchList(){
-    
-    const {watchList, removeMovieFromWatchList} = useContext(WatchListContext);
 
-    const genres = new Set();
-
-    const [watchListMoviesInDisplay, setWatchListMoviesInDisplay]=useState([...watchList]);
-
-
-    watchListMoviesInDisplay.forEach((movie)=>{
-
-        genres.add(genreIdMappings[movie.genre_ids[0]]);
-
-    })
-
-    const genreArray = Array.from(genres);
-    genreArray.unshift("All Genres");
-
-    const onMovieFilter = (e)=>{
-
-        const searchValue = e.target.value.toLowerCase();
-
-        const moviesToDisplay = watchList.filter((movie)=>{
-           return movie.title.toLowerCase().startsWith(searchValue);
-        })
-
-        setWatchListMoviesInDisplay(moviesToDisplay);
-        
-    }
-
-    console.log(genreArray);
-
+    const {genreArray, onMovieFilter, watchListMoviesInDisplay} = useWatchListHook();
 
     return <div>
-
        <div className="flex justify-center ">
         {
             genreArray.map((genre)=>{
@@ -105,11 +74,7 @@ function WatchList(){
 
                 }
 
-
-
             </tbody>
-
-
         </table>    
 
 
@@ -120,4 +85,12 @@ function WatchList(){
 
 }
 
+
+
 export default WatchList;
+
+
+
+
+
+
