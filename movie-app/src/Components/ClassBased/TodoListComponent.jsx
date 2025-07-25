@@ -1,4 +1,5 @@
 import React from "react";
+import Input from "./InputComponent";
 
 
 
@@ -12,18 +13,10 @@ class TodoListComponent extends React.Component{
 
         this.state={
             todos:[],
-            searchValue:""
         }
     
     }
 
-    onInputChange = (e)=>{
-
-        this.setState({
-            searchValue:e.target.value
-        })
-
-    }
 
     onAddTodo = ()=>{
 
@@ -65,7 +58,8 @@ class TodoListComponent extends React.Component{
 
             }
 
-            <input onChange={this.onInputChange} value={this.state.searchValue} type="text" />
+            <Input/>
+
 
             <button onClick={this.onAddTodo} >  Add Todo </button>
 
