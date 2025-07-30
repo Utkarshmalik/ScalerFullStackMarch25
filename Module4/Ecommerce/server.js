@@ -1,143 +1,192 @@
 
 const express = require("express");
-var { productsData } = require("./data/products");
-const bodyParser = require('body-parser')
+
+const mongoose = require("mongoose");
+
+const bodyParser = require("body-parser");
 
 
-//Create an Express Application 
 const app = express();
 
 
+app.use(bodyParser.json());
 
-// Custom Middleware
-const loggerMiddleware = app.use((req,res,next)=>{
-     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-     next(); // Proceed to the next handler
+
+mongoose.connect("mongodb+srv://utmalik:qwerty123@cluster0.49bji.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+.then(()=>{
+    console.log("Connected to DB successfully")
+})
+.catch((err)=>{
+    console.log(err);
 })
 
-const jsonParser = bodyParser.json();
-app.use(jsonParser);
+//Collections : Documents 
 
-
-
-app.get("/",(req,res)=>{
-
-    res.json({
-        name:"Utkarsh",
-        age:31
-    });
-    
-});
+//Create a Schema , a set of fields and their associated types 
+// Create a Collection from a partcular schema 
+// Create a Document and Insert that Collection  
 
 
 
 
 
-
-app.get("/products",(req,res)=>{
-    return res.status(200).json(productsData);
-})
+//Product Schema 
 
 
-
-app.get("/products/:productId",(req,res)=>{
-
-
-    const productId = req.params.productId;
-
-    const requiredProduct = productsData.find(product=>product.id == productId);
-
-    if(!requiredProduct){
-        return res.status(404).send({message:`The product with productId : ${productId} is not present`});
+//Create a Schema for that Collection 
+const ProductSchema = mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true,
+        min:0
+    },
+    category:{
+        type:String,
+        required:true,
+        enum:["Electronics","Fashion","Jewellery"]
     }
-    
-
-    return res.status(200).send(requiredProduct);
-    
 })
 
-
-// app.get("/products/:productId/:rateId",(req,res)=>{
-
-//     console.log(req.params);
-    
-//         return res.status(200).json({response:"Product data"});
-
-    
-// })
+//Create a Collection 
+const ProductModel = mongoose.model("Products_ScalerMar25",ProductSchema);
 
 
-
-
-
-app.post("/products",(req,res)=>{
+app.post("/products",async (req,res)=>{
 
     const productData = req.body;
 
-
-    //validations 
-    if(!productData.title){
-        return res.status(400).send({
-            message:"Title needs to be passed to create a new product"
-        })
-    }
-
-    const productId = Math.floor(Math.random()*100)*10;
-
-    const newProduct = {...productData, id:productId};
-
-    productsData.push(newProduct);
-
-
-    return res.status(201).send(newProduct);
-
-})
-
-app.delete("/products/:productId",(req,res)=>{
-
-    const productId = req.params.productId;
-
-       const requiredProduct = productsData.find(product=>product.id == productId);
-
-    if(!requiredProduct){
-        return res.status(404).send({message:`The product with productId : ${productId} is not present`});
-    }
-
-    productsData = productsData.filter((product)=>{
-        return product.id!=productId;
+    const productDoc = new ProductModel({
+        name:req.body.name,
+        description:req.body.description,
+        price:req.body.price,
+        category:req.body.category
     })
 
+    try{
+    const saveResponse =  await productDoc.save();
+    return res.status(201).send(saveResponse)
 
-
-    return res.status(200).send({message:`Product with productId : ${productId} has been deleted successfully`});
-
+    }catch(err){
+        return res.status(500).send({message:"Internal Server Error ! Please try again"});
+    }
 })
 
-app.patch("/products/:productId",(req,res)=>{
 
-     const productId = req.params.productId;
+app.get("/products",async (req,res)=>{
+    
+    try{
 
-       const requiredProduct = productsData.find(product=>product.id == productId);
+        const products = await ProductModel.find({});
 
-    if(!requiredProduct){
-        return res.status(404).send({message:`The product with productId : ${productId} is not present`});
+        return res.status(200).send(products);
+
+
+    }catch(err){
+        return res.status(500).send({message:"Internal Server Error ! Please try again"});
+
     }
+})
 
-    const updatedProductData = req.body;
 
-    if(!updatedProductData){
-        return res.status(400).send({message:"Product Details are not passed"});
+app.get("/products/:id",async (req,res)=>{
+
+    const productId = req.params.id;
+
+    const isValidObjectId = mongoose.Types.ObjectId.isValid(productId);
+
+    if(!isValidObjectId){
+        return res.status(400).send({message:`ProductId:${productId} is not a valid format for product Ids`})
     }
+    
+    try{
+        
+        const product = await ProductModel.findById(productId);
 
-    for (const key in updatedProductData) {
-        if(requiredProduct[key]){
-            requiredProduct[key]=updatedProductData[key];
+        if(product==null){
+            return res.status(404).send({message:`Product with id:${productId} is not found`});
         }
-   }
-   
-   return res.status(200).send(requiredProduct);
+
+        return res.status(200).send(product);
+
+    }catch(err){
+        return res.status(500).send({message:"Internal Server Error ! Please try again "+ err});
+
+    }
 })
 
+
+app.delete("/products/:id",async (req,res)=>{
+
+    const productId = req.params.id;
+
+    const isValidObjectId = mongoose.Types.ObjectId.isValid(productId);
+
+    if(!isValidObjectId){
+        return res.status(400).send({message:`ProductId:${productId} is not a valid format for product Ids`})
+    }
+    
+    try{
+        
+       const data = await ProductModel.findByIdAndDelete(productId);
+
+       if(data===null){
+         return res.status(404).send({message:`Product with id:${productId} is not found`});
+       }
+
+
+       return res.status(200).send({message:`Product with id: ${productId} is deleted successfully`});
+
+    }catch(err){
+        return res.status(500).send({message:"Internal Server Error ! Please try again "+ err});
+
+    }
+})
+
+
+
+app.patch("/products/:id",async (req,res)=>{
+
+    const productId = req.params.id;
+
+    const isValidObjectId = mongoose.Types.ObjectId.isValid(productId);
+
+    if(!isValidObjectId){
+        return res.status(400).send({message:`ProductId:${productId} is not a valid format for product Ids`})
+    }
+
+    const updateObj = req.body;
+
+    if(!updateObj){
+        return res.status(400).send({message:"Update data is empty"});
+    }
+
+    console.log(updateObj);
+    
+    try{
+
+        const response = await ProductModel.findByIdAndUpdate(productId, 
+            updateObj, {new:true});
+        
+            if(response===null){
+            return res.status(404).send({message:`Product with id:${productId} is not found`});
+            }
+
+            return res.status(200).send(response);
+    
+
+    }catch(err){
+        return res.status(500).send({message:"Internal Server Error ! Please try again "+ err});
+
+    }
+})
 
 
 
@@ -147,51 +196,14 @@ app.patch("/products/:productId",(req,res)=>{
 
 
 const port = 3000;
-
-app.listen(port,()=>{
+app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`);
 })
 
 
-//HTTP Request 
-
-//Client 
 
 
-// GET , POST , DELETE, PUT , PATCH 
+//Ecommerce
 
+// Product , User, Cart 
 
-// PUT vs PATCH 
-
-
-// PUT (Idempotent, Full Update) : Replaces the entire resource with the provided data.
-
-
-// PUT /users/123
-
- {
-//   "name": "John Doe",
-//   "email": "john@example.com",
-//   "age": 30
-}
-
-
-// PATCH (Non-Idempotent, Partial Update)
-
-
-//  PATCH /users/123
-
-//  {
-//    "age": 31
-//  }
-
-
-
-
-// Middleware is used for tasks such as:
-
-// Parsing request data
-// Authentication
-// Logging
-// Error handling
-// Transformations and more
