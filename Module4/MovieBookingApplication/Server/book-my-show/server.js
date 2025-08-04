@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const initialiseUserRoutes = require("./src/Routes/user.routes");
 const bodyParser = require("body-parser");
 const initialiseMovieRoutes = require("./src/Routes/movie.routes");
+const cors = require('cors')
 
 const app = express();
 
@@ -17,6 +18,7 @@ mongoose.connect("mongodb+srv://utmalik:qwerty123@cluster0.49bji.mongodb.net/?re
 
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get("/",(req,res)=>{
     console.log("hello");

@@ -1,11 +1,13 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
+import { Button, Checkbox, Form, Input, message } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import { RegisterUser } from '../../api/auth';
 
 function Register(){
 
+    const navigate = useNavigate();
 
 
-    const onFinish=(values)=>{
+    const onFinish= async (values)=>{
 
         const {email, password, name} = values;
 
@@ -16,6 +18,16 @@ function Register(){
         };
 
         console.log(`Making an Register API call with input `, input);
+
+        const response = await RegisterUser(input);
+
+        if(response.success){
+            message.success(response.message);
+            navigate("/login");
+        }else{
+            message.error(response.message);
+        }
+       
     }
 
 

@@ -1,11 +1,15 @@
 
-import { Button, Checkbox, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
+import { Button, Checkbox, Form, Input, message } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoginUser } from '../../api/auth';
 
 
 function Login(){
 
-    const onFinish=(values)=>{
+    const navigate = useNavigate();
+
+    const onFinish= async (values)=>{
+
 
         const {email, password} = values;
 
@@ -15,6 +19,17 @@ function Login(){
         };
 
         console.log(`Making an API call with input `, input);
+
+        const response = await LoginUser(input);
+
+        console.log(response);
+
+        if(response.success){
+            message.success(response.message);
+            navigate("/");
+        }else{
+            message.error(response.message);
+        }
     }
 
 

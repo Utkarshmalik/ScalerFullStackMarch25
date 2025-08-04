@@ -5,6 +5,7 @@ const initialiseUserRoutes = (app)=>{
       app.post("/users/register", registerUser);
 }
 
+
 module.exports  = initialiseUserRoutes;
 
 
