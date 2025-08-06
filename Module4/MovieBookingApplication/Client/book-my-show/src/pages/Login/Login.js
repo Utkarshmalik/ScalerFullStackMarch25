@@ -26,6 +26,10 @@ function Login(){
 
         if(response.success){
             message.success(response.message);
+
+            const accessToken = response.accessToken;
+            localStorage.setItem("accessToken", accessToken);
+
             navigate("/");
         }else{
             message.error(response.message);

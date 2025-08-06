@@ -1,5 +1,6 @@
 const UserModel = require("../Model/user.model");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 
 const loginUser = async (req,res)=>{
@@ -32,10 +33,17 @@ const loginUser = async (req,res)=>{
         }
 
 
+        //generate a new JWT token and send it back to the client 
+        const token = jwt.sign({userId:existingUser._id},"RandomSecretKey",{expiresIn: '1h'});
+
+
+
+
         return res.status(200)
         .send({
             success:true,
-            message:`User ${email} login successful`
+            message:`User ${email} login successful`,
+            accessToken:token
         })
 
 
