@@ -2,8 +2,15 @@ import axios from 'axios';
 
 
 export const axiosInstance = axios.create({
-    'Content-Type':'application/json'
+    headers:{
+        'Content-Type':'application/json',
+         'x-access-token':localStorage.getItem("accessToken")
+    }
 })
+
+
+
+
 
 
 

@@ -16,8 +16,23 @@
   flex: 1;
 }
 
+.d-flex{
+  display: flex;
+}
+
+.d-flex-column{
+
+  display: flex;
+  flex-direction: column;
+
+}
+
 .ms-3 {
   margin-left: 1rem;
+}
+
+.m-5{
+  margin: 5px;
 }
 
 .text-center {
@@ -106,6 +121,11 @@ button {
   justify-content: end;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
+
 .fs-12 {
   font-size: 12px;
 }
@@ -170,6 +190,11 @@ table th {
 .mt-8 {
   margin-top: 8px;
 }
+
+.mt-20 {
+  margin-top: 20px;
+}
+
 
 hr {
   background-color: #eee !important;
@@ -309,6 +334,10 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.border{
+  border: 2px solid black;
 }
 
 .loader {
