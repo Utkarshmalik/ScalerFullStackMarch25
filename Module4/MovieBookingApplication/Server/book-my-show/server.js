@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const initialiseUserRoutes = require("./src/Routes/user.routes");
 const bodyParser = require("body-parser");
 const initialiseMovieRoutes = require("./src/Routes/movie.routes");
-const cors = require('cors')
+const cors = require('cors');
+const initialiseTheatreRoutes = require("./src/Routes/theatre.routes");
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.get("/",(req,res)=>{
 
 initialiseUserRoutes(app);
 initialiseMovieRoutes(app);
+initialiseTheatreRoutes(app);
  
 
 

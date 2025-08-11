@@ -57,6 +57,23 @@ const verifyToken = (req,res,next)=>{
 
  }
 
-module.exports = {verifyToken, verifyAdmin};
+
+
+  const verifyAdminOrPartner = (req,res, next)=>{
+
+    ///safely assume person is authenticated 
+
+    console.log(req.userDetails);
+
+    const role = req.userDetails.role;
+
+    if(role!='admin' && role !='partner'){
+        return res.status(403).send({success:false,message:`User with id ${req.userDetails._id} is not authorised to access this route`})
+    }
+
+    next();
+
+ }
+module.exports = {verifyToken, verifyAdmin, verifyAdminOrPartner};
 
 

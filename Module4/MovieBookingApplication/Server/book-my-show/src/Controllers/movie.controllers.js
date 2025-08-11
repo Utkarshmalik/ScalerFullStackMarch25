@@ -92,3 +92,7 @@ const getMovieDetails = async (req,res)=>{
 
 
 module.exports =  {getAllMovies, createMovie, getMovieDetails};
+
+
+
+

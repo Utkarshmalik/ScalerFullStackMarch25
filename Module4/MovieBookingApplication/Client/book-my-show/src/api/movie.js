@@ -13,3 +13,18 @@ export const FetchAllMovies = async ()=>{
     }
 
 }
+
+
+export const FetchMovieById = async (movieId)=>{
+
+    try{
+        const response = await axiosInstance.get(`http://localhost:8080/movies/${movieId}`);
+        return response.data;
+
+    }
+    catch(err){
+        console.log(err);
+        return err.response.data;
+    }
+
+}
