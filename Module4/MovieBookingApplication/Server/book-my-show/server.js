@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const initialiseMovieRoutes = require("./src/Routes/movie.routes");
 const cors = require('cors');
 const initialiseTheatreRoutes = require("./src/Routes/theatre.routes");
+const initialiseShowRoutes = require("./src/Routes/show.routes");
 
 const app = express();
 
@@ -30,6 +31,8 @@ app.get("/",(req,res)=>{
 initialiseUserRoutes(app);
 initialiseMovieRoutes(app);
 initialiseTheatreRoutes(app);
+initialiseShowRoutes(app);
+
  
 
 

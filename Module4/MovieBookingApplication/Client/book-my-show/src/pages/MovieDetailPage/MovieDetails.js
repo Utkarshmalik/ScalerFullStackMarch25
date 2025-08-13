@@ -2,16 +2,17 @@ import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import { FetchMovieById } from "../../api/movie";
-import { Flex, Input } from "antd";
+import { Col, Flex, Input, Row } from "antd";
+import { GetShowsByMovieId } from "../../api/shows";
 
 
 function MovieDetailsPage(){
 
 
     const [movie, setMovie] = useState(null);
-
     const [searchParams , setSearchParams] = useSearchParams();
     const [date, setDate] = useState(searchParams.get('date'));
+    const [shows, setShows] = useState(null);
 
     console.log(searchParams);
     const navigate = useNavigate();
@@ -27,6 +28,13 @@ function MovieDetailsPage(){
 
     },[]);
 
+    useEffect(()=>{
+        fetchShowDetails();
+    },[date]);
+
+
+    
+
     const fetchMovieDetails = async ()=>{
 
         const movieDetailsReponse =  await FetchMovieById(movieId);
@@ -34,10 +42,21 @@ function MovieDetailsPage(){
 
     }
 
+
+    const fetchShowDetails = async (req,res)=>{
+
+
+        const showsResponse = await GetShowsByMovieId(movieId, date);
+
+        setShows(showsResponse.data);
+
+        
+    }
+
     const handleDateChange = (e) => {
 
-        setDate(e.target.value);
         navigate(`/movies/${movie._id}?date=${e.target.value}`);
+        setDate(e.target.value);
 
     }
 
@@ -91,6 +110,89 @@ function MovieDetailsPage(){
 
                )      
             }
+
+
+            {
+          shows==null && <div className="text-center" > <h2> Fetching Shows  ....</h2> </div>       
+            }
+
+
+            {
+            shows &&  Object.keys(shows).length==0  &&  <div className=" primary text-center" > <h2> Currently,  No Theatres available for this movie </h2> </div>       
+            }
+
+
+               {
+            shows &&  Object.keys(shows).length>0  &&  
+
+            <div className="ms-3">
+
+                <h2> Theatres </h2>
+
+                {
+
+                    Object.keys(shows).map((theatreId)=>{
+
+                        const allShowsForThisTheatre= shows[theatreId];
+                        const theatreDetails = allShowsForThisTheatre[0].theatre;
+
+                        return <div>
+
+                              <Row gutter={24}>
+
+                                <Col lg={{span:12}} >
+                                <h3> {theatreDetails.name} </h3>
+                                <p> {theatreDetails.address} </p>
+                                </Col>
+
+                                <Col>
+
+                                <ul className="show-ul">
+
+                                {
+                                        allShowsForThisTheatre.map((show)=>{
+
+                                            return <li > {show.showTime} </li>
+                                        })
+                                    }
+
+                                </ul>
+                                
+                                
+                                </Col>
+
+                              
+                                
+
+
+
+                            </Row>
+
+                            </div>
+
+
+
+                    })
+
+
+
+                }
+
+
+
+             </div>    
+            
+            
+           
+           
+           
+           
+           
+           
+           }
+
+
+
 
 
 
