@@ -13,3 +13,18 @@ export const GetShowsByMovieId = async (movieId, date)=>{
     }
 
 }
+
+
+export const GetShowDetails = async (showId)=>{
+
+    try{
+        const response = await axiosInstance.get(`http://localhost:8080/shows/${showId}`);
+        return response.data;
+
+    }
+    catch(err){
+        console.log(err);
+        return err.response.data;
+    }
+
+}

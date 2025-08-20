@@ -7,6 +7,7 @@ const initialiseMovieRoutes = require("./src/Routes/movie.routes");
 const cors = require('cors');
 const initialiseTheatreRoutes = require("./src/Routes/theatre.routes");
 const initialiseShowRoutes = require("./src/Routes/show.routes");
+const initialiseBookingRoutes = require("./src/Routes/booking.routes");
 
 const app = express();
 
@@ -32,6 +33,7 @@ initialiseUserRoutes(app);
 initialiseMovieRoutes(app);
 initialiseTheatreRoutes(app);
 initialiseShowRoutes(app);
+initialiseBookingRoutes(app);
 
  
 

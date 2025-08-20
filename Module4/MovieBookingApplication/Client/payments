@@ -1,0 +1,13 @@
+Stripe is a popular online payment processing platform that allows businesses to accept payments securely via credit cards, bank transfers, wallets, and more. Stripe provides an API for integrating payment systems into websites and mobile applications, and it handles a lot of the complexity of payments, such as compliance and security.
+
+
+Stripe API Keys 
+
+Stripe uses two types of API keys to interact with its system:
+
+a. Public Key (Publishable Key)
+
+What it is: This is a key that is safe to expose on the client-side (in the browser or mobile app).
+
+Purpose: It allows you to create and interact with Stripe Elements (like payment forms) and to securely handle sensitive card information.
+

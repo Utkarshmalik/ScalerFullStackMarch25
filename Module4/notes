@@ -45,3 +45,94 @@ ORMs/ODMs
 
 
 Create a HTTP Server
+
+
+
+
+
+
+
+
+
+Clients (Login)--------Email/Password----> Server 
+
+Server -> Validate the email and the password that is coming 
+
+JWTToken  -> Clients/Browser store it in the local storage 
+(key)
+
+
+Clients (get All the movies) ----> Headers(token)=-----> Server 
+
+
+Clients (get All the Theatres) ----> Headers(token)-------> Server 
+
+
+Clients (Create a new Booking Theatres) ----> 
+
+
+JWT Tokens are self contained Tokens 
+
+
+
+JWT creation 
+
+A.B.C
+
+
+Header
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+Payload 
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true,
+  "iat": 1516239022
+}
+
+A=base64UrlEncode(Header)
+B= base64UrlEncode(Payload)
+C =  HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret)
+
+  JWTToken = A.B.C
+
+
+
+Server will send this token back to a clent 
+
+Client will recieve the token and store it in the local storage 
+
+
+
+
+Clients (get All the movies) ----> Headers(token) ---> Server (A.B.C)
+
+
+Server should first validate the JWT Token 
+
+
+A'.B',C'
+
+Retry to create a signature 
+
+C`` =  SHA256(A` + B ` + secrey)
+
+C``= C` : JWT token is valid  , else token is invalid 
+
+
+Token Validation 
+
+
+
+JWTs are self container 
+
+
+
+

@@ -1,4 +1,4 @@
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import { FetchMovieById } from "../../api/movie";
@@ -152,7 +152,10 @@ function MovieDetailsPage(){
                                 {
                                         allShowsForThisTheatre.map((show)=>{
 
-                                            return <li > {show.showTime} </li>
+                                            return   <Link to={`/book-show/${show._id}`} >
+                                            <li > {show.showTime} </li>
+
+                                            </Link>
                                         })
                                     }
 

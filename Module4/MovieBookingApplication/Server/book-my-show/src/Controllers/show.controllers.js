@@ -151,7 +151,7 @@ const getTheatesAndShowsByMovieId = async (req,res)=>{
 
         };
 
-        const allShows = await ShowModel.find({movie:movieId, showDate:showDate}).populate('theatre').populate('movie');
+        const allShows = await ShowModel.find({movie:movieId}).populate('theatre').populate('movie');
 
         let showsByTheatreId = {};
 
