@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const {Header} = Layout;
 
@@ -12,13 +13,28 @@ const items = [
   {
     label: 'User',
     key: 'user'
+  },{
+    label:'Logout',
+    key:'logout'
   }
 ];
 const Navbar = () => {
   const [current, setCurrent] = useState('mail');
+
+  const navigate = useNavigate();
+
   const onClick = e => {
     console.log('click ', e);
-    setCurrent(e.key);
+
+    if(e.key==="logout"){
+
+      localStorage.removeItem("accessToken");
+
+      navigate("/login");
+
+    }
+
+    
   };
   return <Layout>
 

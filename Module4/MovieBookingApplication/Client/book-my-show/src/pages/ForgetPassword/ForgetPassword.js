@@ -1,39 +1,29 @@
 
-import { Button, Checkbox, Form, Input, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import { LoginUser } from '../../api/auth';
+import { Button, Checkbox, Form, Input, message } from 'antd';
+import { ForgetPasswordAPI } from '../../api/auth';
 
+function ForgetPassword(){
 
-function Login(){
 
     const navigate = useNavigate();
 
     const onFinish= async (values)=>{
 
+        const request = {email:values.email};
 
-        const {email, password} = values;
-
-        const input = {
-            email, 
-            password
-        };
-
-        console.log(`Making an API call with input `, input);
-
-        const response = await LoginUser(input);
-
+        
+        const response = await ForgetPasswordAPI(request);
         console.log(response);
 
-        if(response.success){
+            if(response.success){
             message.success(response.message);
-
-            const accessToken = response.accessToken;
-            localStorage.setItem("accessToken", accessToken);
-
-            navigate("/");
+            navigate("/reset");
         }else{
             message.error(response.message);
         }
+
+
     }
 
 
@@ -44,7 +34,7 @@ function Login(){
             <main className='border text-center mw-500 px-3'>
 
                 <section>
-                    <h1> Login to BookMyShow</h1>
+                    <h1> Forget Password </h1>
                 </section>
 
 
@@ -60,38 +50,23 @@ function Login(){
                 <Input type='email' placeholder='Enter your email' id='email'  />
                 </Form.Item>
 
-                <Form.Item
-                label="Password"
-                name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
-                >
-                <Input type='password' id='password' placeholder='Enter your Password' />
-                </Form.Item>
-
+          
 
                 <Form.Item>
                 <Button style={{fontSize:"1rem"}}  block type="primary" htmlType="submit">
-                    Login
+                    Send OTP
                 </Button>
                 </Form.Item>
             </Form>
 
-            <p> New User ?  
+            <p> Existing User ?  
                 
-                <Link to="/register" >
-                 Register Here
+                <Link to="/login" >
+                 Login Here
                 </Link>
                 
             </p>
 
-
-            <p> Forget Password ?  
-                
-                <Link to="/forget" >
-                 Reset Password
-                </Link>
-                
-            </p>
 
 
                    
@@ -105,7 +80,8 @@ function Login(){
         </div>
 
     </div>
+    
 
 }
 
-export default Login;
+export default ForgetPassword;

@@ -1,39 +1,34 @@
 
+
 import { Button, Checkbox, Form, Input, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import { LoginUser } from '../../api/auth';
+import { LoginUser, ResetPasswordAPI } from '../../api/auth';
 
+function ResetPassword(){
 
-function Login(){
 
     const navigate = useNavigate();
 
     const onFinish= async (values)=>{
 
+       
+    const request = {
+            otp:values.otp,
+            password:values.password
+    }
 
-        const {email, password} = values;
 
-        const input = {
-            email, 
-            password
-        };
+     const response = await ResetPasswordAPI(request);
+     console.log(response);
 
-        console.log(`Making an API call with input `, input);
-
-        const response = await LoginUser(input);
-
-        console.log(response);
-
-        if(response.success){
+       if(response.success){
             message.success(response.message);
-
-            const accessToken = response.accessToken;
-            localStorage.setItem("accessToken", accessToken);
-
-            navigate("/");
+            navigate("/login");
         }else{
             message.error(response.message);
         }
+
+
     }
 
 
@@ -44,7 +39,7 @@ function Login(){
             <main className='border text-center mw-500 px-3'>
 
                 <section>
-                    <h1> Login to BookMyShow</h1>
+                    <h1> Reset Password </h1>
                 </section>
 
 
@@ -52,16 +47,16 @@ function Login(){
 
                 <Form layout='vertical' name="basic"   onFinish={onFinish} >
                 <Form.Item
-                label="Email"
-                name="email"
-                rules={[{ required: true, message: 'Email is Required!' }]}
+                label="OTP"
+                name="otp"
+                rules={[{ required: true, message: 'OTP is Required!' }]}
               
                 >
-                <Input type='email' placeholder='Enter your email' id='email'  />
+                <Input type='number' placeholder='Enter your OTP' id='otp'  />
                 </Form.Item>
 
                 <Form.Item
-                label="Password"
+                label="New Password"
                 name="password"
                 rules={[{ required: true, message: 'Please input your password!' }]}
                 >
@@ -71,7 +66,7 @@ function Login(){
 
                 <Form.Item>
                 <Button style={{fontSize:"1rem"}}  block type="primary" htmlType="submit">
-                    Login
+                    Reset Password 
                 </Button>
                 </Form.Item>
             </Form>
@@ -106,6 +101,7 @@ function Login(){
 
     </div>
 
+   
 }
 
-export default Login;
+export default ResetPassword;

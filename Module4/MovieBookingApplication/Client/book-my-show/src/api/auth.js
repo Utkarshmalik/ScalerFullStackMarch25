@@ -31,3 +31,35 @@ export const LoginUser = async (data)=>{
     }
 
 }
+
+
+export const ForgetPasswordAPI = async (data)=>{
+
+    try{
+        
+        const response = await axiosInstance.post("http://localhost:8080/users/forget", data);
+        return response.data;
+        
+    }
+    catch(err){
+        console.log(err);
+        return err.response.data;
+    }
+
+}
+
+
+export const ResetPasswordAPI = async (data)=>{
+
+    try{
+        
+        const response = await axiosInstance.post("http://localhost:8080/users/reset", data);
+        return response.data;
+        
+    }
+    catch(err){
+        console.log(err);
+        return err.response.data;
+    }
+
+}

@@ -1,7 +1,7 @@
 const UserModel = require("../Model/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const { generateOTP } = require("../Utils/OTPGenerator");
 
 const loginUser = async (req,res)=>{
 
@@ -96,7 +96,117 @@ const registerUser = async (req,res)=>{
 }
 
 
+const forgetPassword = async (req,res)=>{
+
+    const {email} = req.body;
+
+    console.log(email);
+
+
+    try{
+
+        let user = await UserModel.findOne({email:email});
+
+        if(user==null){
+            return res.status(404).send({
+                success:false,
+                message:`User with this email ${email} doesnot exists in our system`
+            })
+        }
+
+        //generate an OTP 
+        const otp = generateOTP();
+
+        //send otp via email 
+        console.log("Sending otp via email ", otp);
+
+        user.otp=otp;
+        user.otpExpiry = Date.now() + 2*60*1000;
+
+        await user.save();
+
+
+        //send a response saying OTP sent successfully 
+        return res.status(200).send({
+            success:true,
+            message:`OTP sent successfully to email ${email}`
+        })
+
+
+
+    }catch(err){
+
+
+    }
+
+
+    
+
+
+}
+
+const resetPassword = async (req,res)=>{
+
+    console.log(req.body);
+
+    const {otp, password} = req.body;
+
+    console.log(otp);
+    
+    try{
+
+        const user = await UserModel.findOne({otp:otp});
+
+        if(!user){
+            return res.status(400).send({
+                success:false,
+                message:"OTP is incorrect"
+            })
+
+        }
+
+        if(Date.now() > user.otpExpiry){
+            return res.status(400).send({
+                            success:false,
+                            message:"OTP has been expired"
+                        })
+        };
+
+
+
+      const newHashedPassword = bcrypt.hashSync(password, 10);
+
+
+        user.otp=null;
+        user.otpExpiry=null;
+        user.password = newHashedPassword;
+
+        await user.save();
+
+
+        return res.status(200).send({
+            success:true,
+            message:"Password Reset Successfully"
+        })
+
+
+
+
+
+    }catch(err){
+
+        
+    }
+
+
+
+}
+
+
 module.exports = {
     loginUser,
-    registerUser
+    registerUser,
+    forgetPassword,
+    resetPassword
 }
+

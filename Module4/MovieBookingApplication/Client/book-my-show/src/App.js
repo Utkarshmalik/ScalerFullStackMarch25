@@ -6,6 +6,8 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import MovieDetailsPage from './pages/MovieDetailPage/MovieDetails';
 import BookShow from './pages/BookShow/BookShow';
+import ForgetPassword from './pages/ForgetPassword/ForgetPassword';
+import ResetPassword from './pages/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -19,9 +21,9 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>}/>
         <Route path='/movies/:movieId' element={<MovieDetailsPage/>}/>
-
         <Route path='/book-show/:showId' element={<BookShow/>}/>
-
+        <Route path='/forget' element={<ForgetPassword/>}/>
+        <Route path='/reset' element={<ResetPassword/>}/>
 
       </Routes>
       </BrowserRouter>

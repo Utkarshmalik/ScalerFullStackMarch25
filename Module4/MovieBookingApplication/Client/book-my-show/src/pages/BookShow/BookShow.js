@@ -31,6 +31,8 @@ function BookShow(){
 
         const response = await makePayment(paymentRequest);
 
+        console.log(response);
+
 
         if(response.success){
             message.success(response.message);
@@ -39,7 +41,7 @@ function BookShow(){
                const bookingRequest = {
             show:showId,
             seats:[...selectedSeats],
-            transactionId:response.data.transactionId
+            transactionId:response.transactionId
         }
 
         const bookingResponse = await createBooking(bookingRequest);
