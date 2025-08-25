@@ -2,6 +2,8 @@ const UserModel = require("../Model/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { generateOTP } = require("../Utils/OTPGenerator");
+const { sendEmail } = require("../Utils/EmailUtils");
+const { otpGenerationTemplate } = require("../Templates/otpGenerationTemplate");
 
 const loginUser = async (req,res)=>{
 
@@ -34,7 +36,7 @@ const loginUser = async (req,res)=>{
 
 
         //generate a new JWT token and send it back to the client 
-        const token = jwt.sign({userId:existingUser._id},"RandomSecretKey",{expiresIn: '1h'});
+        const token = jwt.sign({userId:existingUser._id},process.env.SECRET_KEY,{expiresIn: '1h'});
 
 
 
@@ -119,6 +121,11 @@ const forgetPassword = async (req,res)=>{
 
         //send otp via email 
         console.log("Sending otp via email ", otp);
+
+        const {subject, body} = otpGenerationTemplate(user, otp);
+
+        sendEmail([email],subject,body);
+        
 
         user.otp=otp;
         user.otpExpiry = Date.now() + 2*60*1000;

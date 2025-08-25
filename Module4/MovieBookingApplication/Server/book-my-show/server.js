@@ -9,9 +9,13 @@ const initialiseTheatreRoutes = require("./src/Routes/theatre.routes");
 const initialiseShowRoutes = require("./src/Routes/show.routes");
 const initialiseBookingRoutes = require("./src/Routes/booking.routes");
 
+require('dotenv').config();
+
 const app = express();
 
-mongoose.connect("mongodb+srv://utmalik:qwerty123@cluster0.49bji.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+console.log(process.env);
+
+mongoose.connect(process.env.DB_URL)
 .then(()=>{
     console.log("Connected to DB Successfully")
 })
@@ -39,7 +43,7 @@ initialiseBookingRoutes(app);
 
 
 
-const port = 8080;
+const port = process.env.PORT
 
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`);

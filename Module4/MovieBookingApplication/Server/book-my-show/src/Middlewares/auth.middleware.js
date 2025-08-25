@@ -13,7 +13,7 @@ const verifyToken = (req,res,next)=>{
     }
 
     //token is present 
-    jwt.verify(token, "RandomSecretKey",  async (err,payload)=> {
+    jwt.verify(token, process.env.SECRET_KEY,  async (err,payload)=> {
 
         if(err){
             return res.status(403).send({success:false,message:"You are not authenticated to access this route"});

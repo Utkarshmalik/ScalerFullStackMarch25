@@ -1,6 +1,11 @@
 const BookingsModel = require("../Model/booking.model");
 const ShowModel = require("../Model/show.model");
-const stripe = require('stripe')('sk_test_51R3pTx2XhG8Zyja1Fjl1lFHRQPKkF918SaD3umiIVLGiMpZD7SdScbayeg95j7A6BXpTrC1OijEaWkBeZ5aZX68X00xKGv9aXL');
+const { bookingConfirmationTemplate } = require("../Templates/bookingConfirmationTemplate");
+const { sendEmail } = require("../Utils/EmailUtils");
+require('dotenv').config();
+
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripe = require('stripe')(stripeSecretKey);
 
 
 
@@ -50,13 +55,22 @@ const createBooking = async (req,res)=>{
 
         const newBookingResponse = await newBooking.save();
 
-        const showDetails = await ShowModel.findById(show);
+        const showDetails = await ShowModel.findById(show).populate("movie").populate("theatre");
 
         const updatedBookedSeats = [...showDetails.bookedSeats, ...seats];
 
         await ShowModel.findByIdAndUpdate(show, {
             bookedSeats:updatedBookedSeats
         });
+
+        //trigger an email , booking is successfully created 
+
+        const {subject, body} = bookingConfirmationTemplate(req.userDetails, 
+            showDetails, newBookingResponse);
+
+
+        sendEmail([req.userDetails.email], subject,body);
+
 
         return res.status(201).send({
             success:true,
