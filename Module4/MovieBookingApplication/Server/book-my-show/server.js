@@ -8,6 +8,11 @@ const cors = require('cors');
 const initialiseTheatreRoutes = require("./src/Routes/theatre.routes");
 const initialiseShowRoutes = require("./src/Routes/show.routes");
 const initialiseBookingRoutes = require("./src/Routes/booking.routes");
+const rateLimit = require("express-rate-limit");
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+
+
 
 require('dotenv').config();
 
@@ -24,8 +29,34 @@ mongoose.connect(process.env.DB_URL)
 })
 
 
+
+
+
 app.use(bodyParser.json());
+
+// app.use(mongoSanitize());
+
+
+
 app.use(cors());
+
+
+
+const apiLimiter = rateLimit({
+    windowMs:3 * 1000,
+    max:5,
+    message:"Too many requests from this IP, Please try again in sometime"
+
+});
+
+
+
+app.use(apiLimiter);
+
+
+
+app.use(helmet());
+
 
 app.get("/",(req,res)=>{
     console.log("hello");

@@ -14,25 +14,34 @@ const loginUser = async (req,res)=>{
     }
 
      try{
+          const existingUser = await UserModel.findOne({email:email});
 
-        const existingUser = await UserModel.findOne({email:email});
+        // const existingUser = await UserModel.findOne({email:{"$gt": ""}});
+
+        console.log(existingUser);
+    
+
+
+
+
+
 
         if(!existingUser){
             return res.status(400).send({success:false,message:`User with email ${email} doesnot exists in our systems`});
         }
 
-        const hashedCorrectPasswrd = existingUser.password;
+        // const hashedCorrectPasswrd = existingUser.password;
 
-        const isPasswordValid = bcrypt.compareSync(password, hashedCorrectPasswrd);
+        // const isPasswordValid = bcrypt.compareSync(password, hashedCorrectPasswrd);
 
-        if(!isPasswordValid){
+        // if(!isPasswordValid){
 
-            return res.status(400)
-            .send({
-                success:false,
-                message:`Sorry! Invalid Password Entered`
-            })
-        }
+        //     return res.status(400)
+        //     .send({
+        //         success:false,
+        //         message:`Sorry! Invalid Password Entered`
+        //     })
+        // }
 
 
         //generate a new JWT token and send it back to the client 
