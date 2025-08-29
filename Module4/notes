@@ -136,3 +136,145 @@ JWTs are self container
 
 
 
+
+
+Perfomance 
+
+
+1 Single Client (100000 calls in 1 Sec)
+
+
+TPS : 100K TPS 
+
+DDos attacks
+
+
+Rate Limiting 
+
+
+Client A : 10TPS 
+
+//Client A can never make more than 10 requests in a second 
+
+CLientB : 50TPS 
+
+Client B can never make more than 50 requests in a second
+
+
+
+11th call : Throttling 
+
+Server
+
+API 
+
+Client_API 
+
+C1_A1 : 10TPS 
+
+
+
+
+
+
+SQL injection
+
+Select * from users Where username = '${username}' AND password = '${password}'`;
+
+
+Select * from users Where username = 'admin' OR '1'='1" AND password = 'qwerty123`;
+
+
+SQL Injection is a code injection technique that exploits a security vulnerability in an application's software by manipulating the SQL queries made to the database. It typically occurs when user input is improperly sanitized and then included in SQL queries, allowing attackers to execute arbitrary SQL commands.
+
+
+
+
+
+
+Web Sockets
+
+
+
+
+
+
+
+
+
+
+
+HTTP/REST API APIs request response pattern
+
+Client sends a request
+Server responds
+Then connection is closed
+
+
+This works fine for static or on-demand data.
+
+Polling is a technique used in computing where one system or component repeatedly checks (or "polls") another to see if a certain condition has been met or if new data is available.
+
+Client-Server Communication: A client might poll a server every 0.5 seconds to see if there's a new message.
+
+Cons
+
+Inefficient if nothing changes often (wastes resources)
+Can introduce latency depending on the polling interval
+
+Polling every few seconds increases latency, bandwidth usage, and server load.
+
+
+
+ WebSockets  : BiDirectional Commuication 
+
+
+
+WebSocket is a full-duplex communication protocol that enables real-time, two-way interaction between client and server over a single TCP connection.
+
+
+HTTP is request-response based (client initiates, server responds).
+
+WebSocket allows both client and server to send messages anytime, making it perfect for real-time applications.
+
+
+
+ How WebSocket Works ?
+
+ Handshake – Client initiates a WebSocket connection via HTTP Upgrade request.
+
+Open Connection – If server supports WebSockets, the connection is upgraded.
+
+Communication – Both client and server can now send/receive messages in real time.
+
+
+Close – Either party can close the connection.
+
+
+
+
+2. When to use WebSockets?
+
+Chat Applications
+
+Collaborative editing (e.g., Google Docs)
+
+Online gaming
+
+Live notifications
+
+Real-time data streaming (e.g., stock prices, sports scores)
+
+
+
+Cons 
+
+
+Server Resources
+Scalability Challenges
+Security Vulnerabilities
+Maintenance Complexities
+
+
+io.on('connection', callback): Listens for when a new client connects to the WebSocket server.
+

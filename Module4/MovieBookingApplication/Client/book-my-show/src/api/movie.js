@@ -12,7 +12,6 @@ export const FetchAllMovies = async ()=>{
     }
     catch(err){
         console.log(err);
-        return err.response.data;
     }
 
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"> </script>
+
+    <script>
+
+    //initialise the socket connection
+    // var socket = io(); 
+
+    // const mesage = "Hey I am a client , sending a message via websocket connection";
+
+    // //a client wants to send a message to a sever 
+    // socket.emit("message",mesage);
+
+    // //Handle incoming message
+    // socket.on("message",(msg)=>{
+
+    //     console.log("Message Recieved via Server ", msg);
+    // })
+
+    </script>
+
+</head>
+<body>
+
+    <h1> Whatsapp Chat </h1>
+
+    <ul id="messages">
+
+    </ul>
+
+    <form id="chat-room-form">
+        <input id="room-message" placeholder="Write Message" />
+        <button> Send to Room  </button>
+
+    </form>
+
+
+
+    <script>
+
+        const socket = io();
+
+        //Handle Incoming Messages 
+
+          socket.on("message",(msg)=>{
+            const newMessage=msg;
+        
+             const li = document.createElement('li');
+             li.textContent = newMessage;
+
+             const messages = document.getElementById("messages");
+
+             messages.appendChild(li);
+
+
+
+
+        })
+
+        const chatRoomForm = document.getElementById("chat-room-form");
+        const inputMessage = document.getElementById('room-message');
+
+        chatRoomForm.addEventListener('submit',(e)=>{
+
+            e.preventDefault();
+            console.log("Form is submiited");
+
+            const message = inputMessage.value;
+
+
+            socket.emit("roomMessage",{
+                room:"room12345",
+                message:message
+            });
+
+        })
+
+      
+
+    </script>
+</body>
+</html>

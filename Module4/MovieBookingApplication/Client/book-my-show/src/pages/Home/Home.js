@@ -49,6 +49,8 @@ function Home(){
 
         const moviesData = await FetchAllMovies();
 
+        console.log(moviesData);
+
         allMoviesData.current = moviesData.data;
 
         setMovies(moviesData.data);
