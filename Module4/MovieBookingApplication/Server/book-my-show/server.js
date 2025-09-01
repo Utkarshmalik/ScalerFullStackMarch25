@@ -29,16 +29,28 @@ mongoose.connect(process.env.DB_URL)
 })
 
 
+app.use(cors());
 
 
 
 app.use(bodyParser.json());
 
-// app.use(mongoSanitize());
+
+app.use((req, res, next) => {
+  Object.defineProperty(req, 'query', {
+    ...Object.getOwnPropertyDescriptor(req, 'query'),
+    value: req.query,
+    writable: true,
+  });
+  next();
+});
+
+
+app.use(mongoSanitize());
 
 
 
-app.use(cors());
+
 
 
 

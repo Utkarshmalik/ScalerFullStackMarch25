@@ -1,0 +1,22 @@
+How can a NodeJS application effectively serve large files such as 400MB video ,
+ without exhausintg the server's RAM and cache resoruces ? 
+
+Solution : Streaming 
+
+What makes streams unique, is that instead of a program reading a file into memory all at once like in the traditional way, streams read chunks of data piece by piece, processing its content without keeping it all in memory.
+
+
+This makes streams really powerful when working with large amounts of data, for example, a file size can be larger than your free memory space, making it impossible to read the whole file into the memory in order to process it. That’s where streams come to the rescue!
+
+Let’s take a “streaming” services such as YouTube or Netflix for example: these services don’t make you download the video and audio feed all at once. Instead, your browser receives the video as a continuous flow of chunks, allowing the recipients to start watching and/or listening almost immediately.
+
+
+
+Writable: We can write data to these streams. e.g., fs.createWriteStream().
+Readable: We can read data from these streams. e.g., fs.createReadStream().
+
+
+Readable Stream 
+
+
+Writeable Stream 
